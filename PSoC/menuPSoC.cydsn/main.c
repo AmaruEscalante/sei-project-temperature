@@ -10,6 +10,8 @@
  * ========================================
 */
 #include "project.h"
+#include "monitor_temperature.h"
+#include <stdio.h>
 
 #define MAX_LENGTH 2 // 1 extra for the "return" character
 #define RETURN 0x0D
@@ -58,6 +60,46 @@ void printMenu()
 void option1()
 {
     UART_PutString("Option 1 selected\r");
+
+    I2C_Start();
+    
+    float prom = 0;
+    char buffer[100];
+    uint8 data_l = 10;
+    uint8 data_h = 5;
+    
+    // Configurar como modo conversión continua
+    DS_WriteConfigRegister(0x2);
+    // Empezar conversión
+    DS_StartConvert();
+    
+    
+    for(;;)
+    {
+        prom = 0;
+        
+        for(uint8_t i=0; i<10; i++)
+        {
+            // Leer temperatura
+            DS_ReadTemp(&data_l, &data_h);
+            // Sumar valor del MSByte
+            prom += (float)data_h;
+            // Sumar valor del LSByte
+            if (data_l == 0x80)
+            {
+                prom += 0.5;
+            }
+            CyDelay(10);
+        }
+        // Promedio
+        prom = prom/10; 
+
+        sprintf(buffer, "Temperatura promedio: %0.1f\n\r", prom);
+        UART_PutString(buffer);
+        
+        CyDelay(1000);
+    }
+    
 }
 
 void option2()
@@ -79,7 +121,6 @@ int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
     UART_Start(); 
-    
     char ch;
     char option;
     int iter;
