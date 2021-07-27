@@ -1,17 +1,7 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
 #include "project.h"
-#include "monitor_temperature.h"
 #include <stdio.h>
+#include <string.h>
+#include "monitor_temperature.h"
 
 #define MAX_LENGTH 2 // 1 extra for the "return" character
 #define RETURN 0x0D
@@ -46,6 +36,7 @@ int getNewSize(char* arr)
     return newSize;
 }
 
+
 void printMenu()
 {
     UART_PutString("--------------------------------------------------------\r");
@@ -57,23 +48,43 @@ void printMenu()
     UART_PutString("--------------------------------------------------------\r");
 }
 
+
 void option1()
 {
     UART_PutString("Option 1 selected\r");
+    
+}
 
-    I2C_Start();
+void option2()
+{
+    UART_PutString("Option 2 selected\r");
+}
+
+void option3()
+{
+    UART_PutString("Option 3 selected\r");
+}
+
+void option4()
+{
+    UART_PutString("Option 4 selected\r");
+}
+
+void read_temp(){
+    I2C_Start();    
     
     float prom = 0;
     char buffer[100];
-    uint8 data_l = 10;
-    uint8 data_h = 5;
+    
+    uint8 data_h;
+    uint8 data_l;
     
     // Configurar como modo conversión continua
     DS_WriteConfigRegister(0x2);
     // Empezar conversión
     DS_StartConvert();
     
-    
+    CyDelay(1000);
     for(;;)
     {
         prom = 0;
@@ -99,33 +110,24 @@ void option1()
         
         CyDelay(1000);
     }
-    
-}
-
-void option2()
-{
-    UART_PutString("Option 2 selected\r");
-}
-
-void option3()
-{
-    UART_PutString("Option 3 selected\r");
-}
-
-void option4()
-{
-    UART_PutString("Option 4 selected\r");
 }
 
 int main(void)
 {
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    UART_Start(); 
+    CyGlobalIntEnable; 
+    UART_Start();
+    
     char ch;
     char option;
     int iter;
     char received_data[MAX_LENGTH];
-
+    
+    ch = 0x00;
+    iter = 0;
+    
+       
+    //read_temp();
+    
     for(;;)
     {
         ch = 0x00;
@@ -154,6 +156,7 @@ int main(void)
         {
             case '1':
               option1();
+              read_temp();
               break;
 
             case '2':
@@ -174,5 +177,3 @@ int main(void)
         }
     }
 }
-
-/* [] END OF FILE */
