@@ -11,6 +11,16 @@ CY_ISR_PROTO(stop_temperature_conversion);
 
 bool IS_READING_TEMPERATURE = false;
 
+char findChar(int n)
+{
+  if(n == 0)return 'A';
+  else if(n ==1) return 'D';
+  else if(n ==2) return 'F';
+  else if(n ==3) return 'G';
+  else if(n ==4) return 'V';
+  else return 'X';
+}
+
 char readUART()
 {
     char ch;
@@ -41,16 +51,9 @@ int getNewSize(char *arr)
     return newSize;
 }
 
-void read_temp()
+float read_temp()
 {
-    UART_PutString("Start temperature monitoring\r");
-    I2C_Start();
-    Rx_ISR_StartEx(stop_temperature_conversion);
-    // Pone Atmel en modo esclavo para no interrumpir el monitoreo
-    SR_Write(1);
-
     float prom = 0;
-    char buffer[100];
 
     uint8 data_h;
     uint8 data_l;
@@ -59,36 +62,29 @@ void read_temp()
     DS_WriteConfigRegister(0x2);
     // Empezar conversión
     DS_StartConvert();
-    IS_READING_TEMPERATURE = true;
+    
     CyDelay(1000);
-    for(;;)
+    
+        
+    prom = 0;
+
+    for (uint8_t i = 0; i < 5; i++)
     {
-        if(IS_READING_TEMPERATURE == false){
-            break;
-        }
-        prom = 0;
-
-        for (uint8_t i = 0; i < 5; i++)
+        // Leer temperatura
+        DS_ReadTemp(&data_l, &data_h);
+        // Sumar valor del MSByte
+        prom += (float)data_h;
+        // Sumar valor del LSByte
+        if (data_l == 0x80)
         {
-            // Leer temperatura
-            DS_ReadTemp(&data_l, &data_h);
-            // Sumar valor del MSByte
-            prom += (float)data_h;
-            // Sumar valor del LSByte
-            if (data_l == 0x80)
-            {
-                prom += 0.5;
-            }
-            CyDelay(10);
+            prom += 0.5;
         }
-        // Promedio
-        prom = prom / 5;
-
-        sprintf(buffer, "Temperatura promedio: %0.1f\n\r", prom);
-        UART_PutString(buffer);
-
-        CyDelay(2000);
+        CyDelay(10);
     }
+    // Promedio
+    prom = prom / 5;
+    return prom;
+    
 }
 
 void printMenu()
@@ -104,13 +100,124 @@ void printMenu()
 
 void option1()
 {
+    char buffer[100];
+    float prom;
+        
     UART_PutString("Option 1 selected\r");
-    read_temp();
+    UART_PutString("Start temperature monitoring\r");
+    I2C_Start();
+    Rx_ISR_StartEx(stop_temperature_conversion);
+    // Pone Atmel en modo esclavo para no interrumpir el monitoreo
+    SR_Write(1);
+    IS_READING_TEMPERATURE = true;
+    for(;;)
+    {
+        if(IS_READING_TEMPERATURE == false){
+            break;
+        }
+        prom = read_temp();
+        sprintf(buffer, "Temperatura promedio: %0.1f\n\r", prom);
+        UART_PutString(buffer);
+        CyDelay(2000);
+    }
 }
 
 void option2()
 {
+    char buffer[26];
+    float prom;
+        
     UART_PutString("Option 2 selected\r");
+    UART_PutString("Start temperature monitoring\r");
+    I2C_Start();
+    Rx_ISR_StartEx(stop_temperature_conversion);
+    // Pone Atmel en modo esclavo para no interrumpir el monitoreo
+    SR_Write(1);
+    IS_READING_TEMPERATURE = true;
+    for(;;)
+    {
+        if(IS_READING_TEMPERATURE == false){
+            break;
+        }
+        prom = read_temp();
+        sprintf(buffer, "TEMPERATURA PROMEDIO: %0.1f", prom);
+        // Encriptacion
+        // Llave ADFGVX
+        int llave[6][6] = { 
+              //  A   D   F   G   V   X 
+                {'A','B','C','D','E','F'}, // A = 65
+                {'G','H','I','J','K','L'}, // D = 68
+                {'M','N','O','P','Q','R'}, // F = 70
+                {'S','T','U','V','.',':'}, // G = 71
+                {'Y','Z','6','5','4','3'}, // V = 86
+                {'7','8','9',' ','1','2'}, // X = 88
+              };
+        
+        // Llave 'FPGA'
+        char llave2[4] = {'F','P','G','A'};
+        int orden[4];
+        char temp;
+        int temp2;
+        // Arreglo de posiciones de llave 2
+        for(int i=0; i<4; i++)orden[i] = i;
+        
+        // Bubble sort
+        for (int i = 0; i < 4-1; i++){   
+           for (int j = 0; j < 4-i-1; j++)
+               if (llave2[j] > llave2[j+1])
+               {
+                 temp = llave2[j];
+                 llave2[j] = llave2[j+1];
+                 llave2[j+1] = temp;
+                 temp2 = orden[j];
+                 orden[j] = orden[j+1];
+                 orden[j+1] = temp2;
+               }
+        }
+        
+        int size = sizeof(buffer)/sizeof(buffer[0]);
+        
+        // Coding
+        char mensaje_cifrado[2*size];
+       
+        const int rows = 1 + 2*size/4;
+
+        char fase2[rows][4];
+        int counter = 0, counter2 = 0;
+        // Generar matriz 
+        for(int n=0; n<size; n++){
+            for(int i=0; i<6; i++){
+                for(int j=0; j<6; j++){
+
+                  if(llave[i][j] == buffer[n]){
+                    fase2[counter2][2*counter] = findChar(i); // Horizontal
+                    fase2[counter2][2*counter+1] = findChar(j); // Vertical
+                    
+                    counter++;
+                    if (counter > 1){
+                      counter = 0;
+                      counter2++;
+                    }
+                  }
+                }
+            }
+        }
+        // Obtener mensaje cifrado de matriz
+        int indice = 0;
+
+        for(int j=0; j<4; j++){
+            for(int i=0; i<rows; i++){
+              if(i != rows-1){
+                mensaje_cifrado[indice] = fase2[i][orden[j]];
+                UART_PutChar(mensaje_cifrado[indice]);
+                indice++;
+              }
+            }
+        }
+        //UART_PutString(mensaje_cifrado);
+        UART_PutString("\n\r");
+        CyDelay(2000);
+    }
 }
 
 void option3()
