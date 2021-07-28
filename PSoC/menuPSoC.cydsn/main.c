@@ -46,6 +46,8 @@ void read_temp()
     UART_PutString("Start temperature monitoring\r");
     I2C_Start();
     Rx_ISR_StartEx(stop_temperature_conversion);
+    // Pone Atmel en modo esclavo para no interrumpir el monitoreo
+    SR_Write(1);
 
     float prom = 0;
     char buffer[100];
@@ -85,7 +87,7 @@ void read_temp()
         sprintf(buffer, "Temperatura promedio: %0.1f\n\r", prom);
         UART_PutString(buffer);
 
-        CyDelay(1000);
+        CyDelay(2000);
     }
 }
 
@@ -191,5 +193,7 @@ CY_ISR(stop_temperature_conversion)
         UART_PutString("Se presiono C, termina de leer \r");
         IS_READING_TEMPERATURE = false;
         Rx_ISR_Stop();
+        // Atmel en modo maestro
+        SR_Write(0);
     }
 }
