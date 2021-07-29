@@ -87,6 +87,26 @@ float read_temp()
     
 }
 
+uint8 ATM_ReadMax()
+{
+    // Definir data a enviar y data a leer
+    uint8 count = 0x1C;
+    uint8 data;
+    // Enviar por I2C
+    I2C_MasterWriteBuf(I2C_SLAVE_ADDR, &count, 1, I2C_MODE_NO_STOP);
+    // Esperar a que la transmisión se complete
+    while(0u == (I2C_MasterStatus() & I2C_MSTAT_WR_CMPLT)){}
+    // Enviar Repeated Start
+    //I2C_MasterSendRestart(I2C_SLAVE_ADDR, 1);
+    // Leer byte 
+    //data = I2C_MasterReadByte(I2C_NAK_DATA);
+    // Terminar comunicación
+    //I2C_MasterSendStop();
+    // Borrar Buffer
+    //I2C_MasterClearWriteBuf();
+    return data;
+}
+
 void printMenu()
 {
     UART_PutString("--------------------------------------------------------\r");
@@ -228,6 +248,24 @@ void option3()
 void option4()
 {
     UART_PutString("Option 4 selected\r");
+    UART_Start();
+    I2C_Start();
+    uint8 max;
+    char buffer[100];
+    char key = 0;
+
+    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+
+    for(;;)
+    {
+        key = readUART();
+        
+        UART_PutChar(key);
+        max = ATM_ReadMax();
+        sprintf(buffer, "Maximo: %d\n\r", max);
+        UART_PutString(buffer);
+        
+    }
 }
 
 int main(void)
