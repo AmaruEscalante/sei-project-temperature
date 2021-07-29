@@ -7,6 +7,8 @@
 #define MAX_LENGTH 2 // 1 extra for the "return" character
 #define RETURN 0x0D
 
+#define I2C_ATMEL_SLAVE_ADDR 0x00
+
 CY_ISR_PROTO(stop_temperature_conversion);
 
 bool IS_READING_TEMPERATURE = false;
@@ -93,7 +95,7 @@ uint8 ATM_ReadMax()
     uint8 count = 0x1C;
     uint8 data;
     // Enviar por I2C
-    I2C_MasterWriteBuf(I2C_SLAVE_ADDR, &count, 1, I2C_MODE_NO_STOP);
+    I2C_MasterWriteBuf(I2C_ATMEL_SLAVE_ADDR, &count, 1, I2C_MODE_NO_STOP);
     // Esperar a que la transmisión se complete
     while(0u == (I2C_MasterStatus() & I2C_MSTAT_WR_CMPLT)){}
     // Enviar Repeated Start

@@ -9,6 +9,8 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "timer", "timer\timer.cproj"
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "memTemp", "memTemp\memTemp.cproj", "{1ABEB553-5FD3-4564-9BEF-374C2D4EFACB}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Psoc", "Psoc\Psoc.cproj", "{2285C48D-296E-43FD-A7B6-69885F64CFFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -27,6 +29,10 @@ Global
 		{1ABEB553-5FD3-4564-9BEF-374C2D4EFACB}.Debug|AVR.Build.0 = Debug|AVR
 		{1ABEB553-5FD3-4564-9BEF-374C2D4EFACB}.Release|AVR.ActiveCfg = Release|AVR
 		{1ABEB553-5FD3-4564-9BEF-374C2D4EFACB}.Release|AVR.Build.0 = Release|AVR
+		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Debug|AVR.ActiveCfg = Debug|AVR
+		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Debug|AVR.Build.0 = Debug|AVR
+		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Release|AVR.ActiveCfg = Release|AVR
+		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
