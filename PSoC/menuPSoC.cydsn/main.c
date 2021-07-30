@@ -7,7 +7,8 @@
 #define MAX_LENGTH 2 // 1 extra for the "return" character
 #define RETURN 0x0D
 
-#define I2C_ATMEL_SLAVE_ADDR 0x00
+#define I2C_ATMEL_SLAVE_ADDR 0x20
+#define TEMP_DATA_SIZE 99
 
 CY_ISR_PROTO(stop_temperature_conversion);
 
@@ -89,25 +90,6 @@ float read_temp()
     
 }
 
-uint8 ATM_ReadMax()
-{
-    // Definir data a enviar y data a leer
-    uint8 count = 0x1C;
-    uint8 data;
-    // Enviar por I2C
-    I2C_MasterWriteBuf(I2C_ATMEL_SLAVE_ADDR, &count, 1, I2C_MODE_NO_STOP);
-    // Esperar a que la transmisión se complete
-    while(0u == (I2C_MasterStatus() & I2C_MSTAT_WR_CMPLT)){}
-    // Enviar Repeated Start
-    //I2C_MasterSendRestart(I2C_SLAVE_ADDR, 1);
-    // Leer byte 
-    //data = I2C_MasterReadByte(I2C_NAK_DATA);
-    // Terminar comunicación
-    //I2C_MasterSendStop();
-    // Borrar Buffer
-    //I2C_MasterClearWriteBuf();
-    return data;
-}
 
 void printMenu()
 {
@@ -245,6 +227,35 @@ void option2()
 void option3()
 {
     UART_PutString("Option 3 selected\r");
+    UART_Start();
+    I2C_Start();
+    char buffer[100];
+    char tempdata[TEMP_DATA_SIZE];
+    
+    // Definir comando
+    uint8 command = 0x1B;
+    
+    // Enviar por I2C
+    I2C_MasterWriteBuf(I2C_ATMEL_SLAVE_ADDR, &command, 1, I2C_MODE_NO_STOP);
+    // Esperar a que la transmisión se complete
+    while(0u == (I2C_MasterStatus() & I2C_MSTAT_WR_CMPLT)){}
+    // Enviar Repeated Start
+    I2C_MasterSendRestart(I2C_ATMEL_SLAVE_ADDR, 1);
+    // Leer 99 datos
+    for (int i = 0; i<TEMP_DATA_SIZE-1; i++)
+    {
+        tempdata[i] = I2C_MasterReadByte(I2C_ACK_DATA);
+        sprintf(buffer, "Temperatura: %d C\n\r", tempdata[i]);
+        UART_PutString(buffer);
+    }
+    tempdata[TEMP_DATA_SIZE-1] = I2C_MasterReadByte(I2C_NAK_DATA);
+
+    sprintf(buffer, "Temperatura: %d C\n\r", tempdata[TEMP_DATA_SIZE-1]);
+    UART_PutString(buffer);
+    // Terminar comunicación
+    I2C_MasterSendStop();
+    // Borrar Buffer
+    I2C_MasterClearWriteBuf();   
 }
 
 void option4()
@@ -252,22 +263,33 @@ void option4()
     UART_PutString("Option 4 selected\r");
     UART_Start();
     I2C_Start();
-    uint8 max;
-    char buffer[100];
-    char key = 0;
-
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-
-    for(;;)
-    {
-        key = readUART();
+    char buffer[200];
+    
+    // Definir comando
+    uint8 command = 0x1C;
+    uint8 max, min, prom, max_time, min_time, prom_dec;
+    
+    // Enviar por I2C
+    I2C_MasterWriteBuf(I2C_ATMEL_SLAVE_ADDR, &command, 1, I2C_MODE_NO_STOP);
+    // Esperar a que la transmisión se complete
+    while(0u == (I2C_MasterStatus() & I2C_MSTAT_WR_CMPLT)){}
+    // Enviar Repeated Start
+    I2C_MasterSendRestart(I2C_ATMEL_SLAVE_ADDR, 1);
+    // Leer Max, Min, Prom
+    max = I2C_MasterReadByte(I2C_ACK_DATA);
+    max_time = I2C_MasterReadByte(I2C_ACK_DATA);
+    min = I2C_MasterReadByte(I2C_ACK_DATA);
+    min_time = I2C_MasterReadByte(I2C_ACK_DATA);
+    prom = I2C_MasterReadByte(I2C_ACK_DATA);
+    prom_dec = I2C_MasterReadByte(I2C_NAK_DATA);
+    // Terminar comunicación
+    I2C_MasterSendStop();
+    // Borrar Buffer
+    I2C_MasterClearWriteBuf();
+    
+    sprintf(buffer, "Maximo: %d C Tiempo: %d min\n\rMinimo: %d C Tiempo: %d min\n\rPromedio: %d.%d C\n\r", max,max_time, min,min_time, prom, prom_dec);
+    UART_PutString(buffer);
         
-        UART_PutChar(key);
-        max = ATM_ReadMax();
-        sprintf(buffer, "Maximo: %d\n\r", max);
-        UART_PutString(buffer);
-        
-    }
 }
 
 int main(void)
