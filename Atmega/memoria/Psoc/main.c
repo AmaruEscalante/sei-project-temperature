@@ -1,82 +1,50 @@
-// Program for Slave mode
-#include<avr/io.h>
-#include <avr/interrupt.h>
+#include "I2CSlave.h"
 
-void TWI_init_slave(void);
-void TWI_match_read_slave(void);
-void TWI_read_slave(void);
-void TWI_match_write_slave(void);
-void TWI_write_slave(void);
+#define I2C_ADDR 0x20
 
-unsigned char write_data,recv_data;
+volatile uint8_t command;
+volatile uint8_t data;
 
-int main(void)
+uint8_t mean_counter = 1;
+uint8_t data_counter = 0;
+
+uint8_t temp_data[3] = {0x30,0x40,0x50};
+
+void I2C_received(uint8_t received_data)
 {
-	sei();
-	DDRD = 0xFF;
-	PORTD = 1;
-	TWI_init_slave(); // Function to initilaize slave
-	while(1)
-	{
-		PORTD = TWCR;
-		while (!(TWCR & (1<<TWINT)));
-		PORTD = TWCR;
-		//TWI_match_read_slave(); //Function to match the slave address and slave dirction bit(read)
-		//TWI_read_slave(); // Function to read data
-		
-		//if (recv_data == 0x1C)
-		//{
-		//	write_data = 20;
-		//	TWI_match_write_slave(); //Function to match the slave address and slave dirction bit(write)
-		//	TWI_write_slave();       // Function to write data
-		//}
-		
+	command = received_data;
+}
+
+void I2C_requested()
+{
+	if (command == 0x1C) {
+		if (mean_counter == 7){
+			mean_counter = 0;
+		}
+		I2C_transmitByte(read_EEPROM(MEMORY_SIZE+mean_counter));
+		mean_counter++;
+		} else if (command == 0x1B){
+		if (data_counter == MEMORY_SIZE){
+			data_counter = 0;
+		}
+		I2C_transmitByte(read_EEPROM(data_counter));
+		data_counter++;
 	}
 }
 
-void TWI_init_slave(void) // Function to initilaize slave
+void setup()
 {
-	TWAR=0x00; // Fill slave address to TWAR
-	TWCR=(1<<TWEA)|(1<<TWEN)|(1<<TWINT);
-	
+	// set received/requested callbacks
+	I2C_setCallbacks(I2C_received, I2C_requested);
+
+	// init I2C
+	I2C_init(I2C_ADDR);
 }
 
-
-void TWI_write_slave(void) // Function to write data
+int main()
 {
-	TWDR= write_data;           // Fill TWDR register whith the data to be sent
-	TWCR= (1<<TWEN)|(1<<TWINT);   // Enable TWI, Clear TWI interrupt flag
-	while((TWSR & 0xF8) != 0xC0); // Wait for the acknowledgement
-}
+	setup();
 
-void TWI_match_write_slave(void) //Function to match the slave address and slave dirction bit(write)
-{
-	while((TWSR & 0xF8)!= 0xA8) // Loop till correct acknoledgement have been received
-	{
-		// Get acknowlegement, Enable TWI, Clear TWI interrupt flag
-		TWCR=(1<<TWEA)|(1<<TWEN)|(1<<TWINT);
-		while (!(TWCR & (1<<TWINT)));  // Wait for TWINT flag
-	}
+	// Main program loop
+	while(1);
 }
-
-void TWI_read_slave(void)
-{
-	// Clear TWI interrupt flag,Get acknowlegement, Enable TWI
-	TWCR= (1<<TWINT)|(1<<TWEA)|(1<<TWEN);
-	while (!(TWCR & (1<<TWINT))); // Wait for TWINT flag
-	while((TWSR & 0xF8)!=0x80); // Wait for acknowledgement
-	recv_data=TWDR; // Get value from TWDR
-}
-
-void TWI_match_read_slave(void) //Function to match the slave address and slave dirction bit(read)
-{
-	/ Get acknowlegement, Enable TWI, Clear TWI interrupt flag
-	TWCR=(1<<TWEA)|(1<<TWEN)|(1<<TWINT);
-	while (!(TWCR & (1<<TWINT)));  // Wait for TWINT flag
-	if((TWSR & 0xF8) == 0x60)  // Loop till correct acknoledgement have been received
-	{
-		/
-	}
-	PORTD = 2;
-}
-
