@@ -1,0 +1,11 @@
+ *  El uso de impresión de flotante requiere:
+ *  + Configurar en el PSoC Project:
+ *    Project -> Build Setting -> ARM GCC 5.4-2016-q2-update -> Linker -> General -> Use newlib-nano Float Formatting: True
+ *    Project -> Build Setting... -> ARM GCC 5.4-2016-q2-update -> Linker -> Command line -> Custom Flags: -uprintf_float
+ *  + En "Design Wide Resources (.cydwr)" setear: Heap size (bytes) 0x200  
+ 
+ *Ejemplo:
+ #include <stdio.h>
+ 
+ sprintf(buffer, "%0.2f, %0.2f ", Temp1, Temp2);
+ UART_PutString(buffer);

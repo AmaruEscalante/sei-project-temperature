@@ -11,6 +11,7 @@
 */
 
 /* [] END OF FILE */
+
 #ifndef MONITOR_TEMPERATURE_H
 #define MONITOR_TEMPERATURE_H
 // Codigos de Operacion dadas en la hoja de datos del sensor
@@ -42,4 +43,3 @@ void DS_StartConvert();
 void DS_ReadTemp(uint8 *data_l, uint8 *data_h );
 
 #endif
-
