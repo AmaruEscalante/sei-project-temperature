@@ -12,6 +12,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 // DS1621 registers
@@ -33,30 +34,22 @@
 #define SELECT PIND2
 #define CLK PIND3
 
-#define MEMORY_SIZE 100
+#define MEMORY_SIZE 99
 
 uint8_t count = 0x00;
 uint8_t minuteflag = 0x00;
 uint8_t maxTemp = 0x00;
 uint8_t minTemp = 0xFF;
-
+float promedio = 0x00;
 
 // EEPROM Functions
-
 void shift10bits(unsigned int data){
 	PORTD |= (1 << SELECT); // señal  del selector en HIGH
 	for(uint8_t count = 0; count < 10; count ++){ // bucle de 10 repeticiones
 		PORTD &= ~(1 << CLK); // señal del clock en LOW
-		
-		// while(sclk_Read() == 1)sclk_Write(0); // bucle para asegurar señal del clock en LOW
-
 		if(data & 0x0200) PORTD |= (1 << MOSI); // escribimos el décimo bit  (0b 0000 00B0 0000 0000)
 		else PORTD &= ~(1 << MOSI);
-		
 		PORTD |= (1 << CLK);  // señal del clock en HIGH
-		
-		// while(sclk_Read() == 0)sclk_Write(1); // bucle para asegurar señal del clock en HIGH
-		
 		data <<= 1;             // rotamos la data hacia la izquierda para enviar el siguiente bit
 	}
 	PORTD &= ~(1 << CLK); // señal del clock en LOW cuando acaba el for loop
@@ -67,15 +60,11 @@ void shiftdata(uint8_t data_write){
 	for(uint8_t count = 0; count < 8; count ++){
 		PORTD &= ~(1 << CLK);  // señal del clock en LOW
 		
-		//while(sclk_Read() == 1)sclk_Write(0);  // bucle para asegurar señal del clock en LOW
-		
 		if(data_write & 0x80)PORTD |= (1 << MOSI);       // escribimos el octavo bit  (0b B000 0000)
 		else PORTD &= ~(1 << MOSI);
 		
 		PORTD |= (1 << CLK);  // señal del clock en HIGH
-		
-		// while(sclk_Read() == 0)sclk_Write(1); // bucle para asegurar señal del clock en HIGH
-		
+				
 		data_write <<= 1;               // rotamos la data hacia la izquierda para enviar el siguiente bit
 	}
 	PORTD &= ~(1 << CLK);
@@ -87,9 +76,7 @@ uint8_t getOutput(uint8_t address_local){
 	uint8_t response = 0x00;
 	for(uint8_t i = 0; i < 8; i++){
 		PORTD &= ~(1 << CLK);
-		//while( PORTD & (1<<CLK) ){PORTD &= ~(1 << CLK);}  // bucle para asegurar señal del clock en LOW
 		PORTD |= (1 << CLK);
-		//while(~(PORTD & (1<<CLK))){PORTD |= (1 << CLK);}
 		if(PIND & (1 << MISO))response |= 1 << (7-i);
 	}
 	PORTD &= ~(1 << CLK);
@@ -145,6 +132,18 @@ void eraseAll(){
 	unsigned int data = 0x0240; // 0b 0000 0010 0100 0000
 	shift10bits(data);          // Send data to erase all
 	PORTD &= ~(1 << SELECT);    // Selector is disabled
+}
+
+void writeAll(uint8_t data_write){
+	//Mascara para escribir 0b 0000 0010 1AAA AAAA DDDD
+	unsigned int write_mask =  1 << 9 | 00 << 7  |  01 << 5; // creamos el dato para enviar
+	shift10bits(write_mask);
+	shiftdata(data_write);
+	PORTD &= ~(1 << SELECT);         // Desactivamos el selector
+	PORTD |= (1 << SELECT);          // Activamos el check status
+	while((PIND && (1 << MISO)) == 0){};         // Bucle para esperar
+	PORTD &= ~(1 << SELECT);         // Terminamos el check status
+	
 }
 
 void timerInit()
@@ -323,40 +322,64 @@ char readTemperature()
 	return temperatureMSB;
 }
 
+
+void readhundredtemp(uint8_t temp);
+void readmaxminprom();
+
+
 ISR(TIMER1_COMPA_vect)
 {
+	minuteflag = 0x01;
 	char temperature;
-	uint8_t temp;
+	uint8_t hundred_count;
 	PORTD ^= (1<<PIND6);
-	temperature = readTemperature();
+	temperature = readTemperature(); // Leer temperatura
+	
+	uint8_t entero, decimal; // promedio
+	float conthist; // 
+	
+	hundred_count = read_EEPROM(MEMORY_SIZE); // Contador de cuantas veces se llego a 100 datos guardados
+	conthist =  (((float)hundred_count*100) + (float)count); // contador historico
+	
+	if (hundred_count == 0 && count == 0)promedio = (float)temperature;
+	else promedio = ((float)temperature + promedio*conthist )/ (conthist+1);	
+	
+	entero = (uint8_t)promedio; // obtenemos el numero
+	decimal = (promedio - (float)entero) * 100;
+	
 	EWEN();
 	
 	if (temperature > maxTemp){
-		temp = read_EEPROM(MEMORY_SIZE) +1;
 		write_byte(MEMORY_SIZE+1, temperature); // Almacenando temperatura maxima
-		write_byte(MEMORY_SIZE+2, ((int)count+1)*(int)temp);
+		write_byte(MEMORY_SIZE+2, conthist);
 		maxTemp = temperature;
 	}
+	
 	if (temperature < minTemp){
-		temp = read_EEPROM(MEMORY_SIZE) +1;
 		write_byte(MEMORY_SIZE+3, temperature); // Almacenando temperatura minima
-		write_byte(MEMORY_SIZE+4, ((int)count+1)*(int)temp); // Almacenando tiempo
+		write_byte(MEMORY_SIZE+4, conthist);    // Almacenando tiempo
 		minTemp = temperature;
 	}
-		
-	write_byte(count, temperature); // Almacenar temperatura
-	count++;
-	if (count >= MEMORY_SIZE){
-		count = 0;
-		temp = read_EEPROM(MEMORY_SIZE);
-		write_byte(MEMORY_SIZE, temp+1);	
-	}
+			
+	write_byte(MEMORY_SIZE+5,entero);
+	write_byte(MEMORY_SIZE+6,decimal);
 	
+	write_byte(count, temperature); // Almacenar temperatura
+	
+		
+	count++;
+	if(count >= MEMORY_SIZE){
+		count = 0;
+		hundred_count++;
+		write_byte(MEMORY_SIZE, hundred_count);
+	}
 	EWDS();
+	
+	
+	//readhundredtemp(temp);
+	
 }
 
-
-void readhundredtemp();
 
 int main(void)
 {	
@@ -377,28 +400,43 @@ int main(void)
 	EWEN();
 	
 	write_byte(MEMORY_SIZE, 0x00);
+	write_byte(MEMORY_SIZE+1, 0x00);
+	write_byte(MEMORY_SIZE+2, 0x00);
+	write_byte(MEMORY_SIZE+3, 0x00);
+	write_byte(MEMORY_SIZE+4, 0x00);
+	write_byte(MEMORY_SIZE+5, 0x00);
+	write_byte(MEMORY_SIZE+6, 0x00);
+	write_byte(MEMORY_SIZE+7, 0x00);
 	
 	EWDS();
 	
 	while (1)
 	{
 		
-		_delay_ms(60000);
-		readhundredtemp();
+		if(minuteflag == 0x01)
+		{
+			
+			
+			minuteflag = 0x00;
+		}
+		
+		
+		//_delay_ms(1000);
+		//readhundredtemp();
 
 	}
 }
 
 
-void readhundredtemp()
+void readhundredtemp(uint8_t temp)
 {
     // Recieve last 100 temperature
 	char temperature;
-	uint8_t contar = 0;
+	uint8_t contar = temp;
 	
 	
 	// verificar si ya tiene 100 datos
-	contar = read_EEPROM(MEMORY_SIZE); // direccion del contador de cuantas veces se llego a 100 datos
+	//contar = read_EEPROM(MEMORY_SIZE); // direccion del contador de cuantas veces se llego a 100 datos
 	if(contar > 0){
 		// If the memory have already saved more than 100 data.
 		
@@ -420,8 +458,10 @@ void readhundredtemp()
 	}else{
 		// If there aren't 100 data, read all temperature saved until the moment
 		
+		
 		contar = 0; // antiguo a reciente
 		//contar = count; // reciente a antiguo
+		
 		
 		for(uint8_t i = 0; i < count; i++)
 		{
@@ -434,5 +474,19 @@ void readhundredtemp()
 		}	
 		
 	}
+	
+}
+
+void readmaxminprom(){
+	uint8_t temp, tiempo;
+	
+	temp = read_EEPROM(MEMORY_SIZE + 1);    // Temperatura maxima
+	tiempo = read_EEPROM(MEMORY_SIZE + 2);  // Tiempo en cuentas de la temperatura maxima
+	
+	temp = read_EEPROM(MEMORY_SIZE + 3);    // Temperatura minima
+	tiempo = read_EEPROM(MEMORY_SIZE + 4);  // Tiempo en cuentas de la temperatura maxima
+	
+	temp = read_EEPROM(MEMORY_SIZE + 5);    // Temperatura Promedio entero
+	tiempo = read_EEPROM(MEMORY_SIZE + 6);  // Temperatura Promedio decimal
 	
 }
