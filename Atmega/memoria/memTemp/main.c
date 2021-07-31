@@ -25,7 +25,7 @@ volatile uint8_t data;
 uint8_t mean_counter = 1;
 uint8_t data_counter = 0;
 
-#define SR PIND2;
+#define SR PIND2
 
 // DS1621 registers
 #define DS1621 0x48 //DS1621 I2C address with A2, A1 and A0 connected to ground
@@ -54,54 +54,11 @@ uint8_t maxTemp = 0x00;
 uint8_t minTemp = 0xFF;
 float promedio = 0x00;
 
-//Atmel I2C Slave Interupts
-void I2C_received(uint8_t received_data)
-{
-	command = received_data;
-}
-
-void I2C_requested()
-{
-	if (command == 0x1C) {
-		if (mean_counter == 7){
-			mean_counter = 0;
-		}
-		I2C_transmitByte(read_EEPROM(MEMORY_SIZE+mean_counter));
-		mean_counter++;
-		} else if (command == 0x1B){
-		if (data_counter == MEMORY_SIZE){
-			data_counter = 0;
-		}
-		I2C_transmitByte(read_EEPROM(data_counter));
-		data_counter++;
-	}
-}
-
 void SR_Interrupt_init()
 {
 	EICRA = (1 << ISC00);
 	EIMSK = (1 << INT0);
 }
-
-ISR(INT0){
-	
-	if (PIND & (1 << SR) == 2)
-	{
-		// set received/requested callbacks
-		I2C_setCallbacks(I2C_received, I2C_requested);
-
-		// init I2C
-		I2C_init(I2C_ADDR);
-		TIMSK1 &= ~(1<<OCIE1A);
-		
-	} else
-	{
-		TWI_init();
-		TIMSK1 |= (1<<OCIE1A);
-	}
-	
-}
-
 
 // EEPROM Functions
 void shift10bits(unsigned int data){
@@ -443,6 +400,50 @@ ISR(TIMER1_COMPA_vect)
 }
 
 
+//Atmel I2C Slave Interupts
+void I2C_received(uint8_t received_data)
+{
+	command = received_data;
+}
+
+void I2C_requested()
+{
+	if (command == 0x1C) {
+		if (mean_counter == 7){
+			mean_counter = 0;
+		}
+		I2C_transmitByte(read_EEPROM(MEMORY_SIZE+mean_counter));
+		mean_counter++;
+		} else if (command == 0x1B){
+		if (data_counter == MEMORY_SIZE){
+			data_counter = 0;
+		}
+		I2C_transmitByte(read_EEPROM(data_counter));
+		data_counter++;
+	}
+}
+
+ISR(INT0_vect){
+	
+	if ((PIND & (1 << SR)) == 2)
+	{
+		// set received/requested callbacks
+		I2C_setCallbacks(I2C_received, I2C_requested);
+
+		// init I2C
+		I2C_init(I2C_ADDR);
+		TIMSK1 &= ~(1<<OCIE1A);
+		
+	} else
+	{
+		TWI_init();
+		TIMSK1 |= (1<<OCIE1A);
+	}
+	
+}
+
+
+
 int main(void)
 {	
 	TWI_init();
@@ -537,19 +538,5 @@ void readhundredtemp(uint8_t temp)
 		}	
 		
 	}
-	
-}
-
-void readmaxminprom(){
-	uint8_t temp, tiempo;
-	
-	temp = read_EEPROM(MEMORY_SIZE + 1);    // Temperatura maxima
-	tiempo = read_EEPROM(MEMORY_SIZE + 2);  // Tiempo en cuentas de la temperatura maxima
-	
-	temp = read_EEPROM(MEMORY_SIZE + 3);    // Temperatura minima
-	tiempo = read_EEPROM(MEMORY_SIZE + 4);  // Tiempo en cuentas de la temperatura maxima
-	
-	temp = read_EEPROM(MEMORY_SIZE + 5);    // Temperatura Promedio entero
-	tiempo = read_EEPROM(MEMORY_SIZE + 6);  // Temperatura Promedio decimal
 	
 }
