@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "monitor_temperature.h"
+#include "crc.h"
 
 #define MAX_LENGTH 2 // 1 extra for the "return" character
 #define RETURN 0x0D
@@ -232,6 +233,8 @@ void option3()
     SR_Write(1);
     char buffer[100];
     char tempdata[TEMP_DATA_SIZE];
+    uint8_t crc_value_rec;
+    uint8_t crc_value_check;
     
     // Definir comando
     uint8 command = 0x1B;
@@ -243,13 +246,18 @@ void option3()
     // Enviar Repeated Start
     I2C_MasterSendRestart(I2C_ATMEL_SLAVE_ADDR, 1);
     // Leer 99 datos
-    for (int i = 0; i<TEMP_DATA_SIZE-1; i++)
+    for (int i = 0; i<TEMP_DATA_SIZE; i++)
     {
         tempdata[i] = I2C_MasterReadByte(I2C_ACK_DATA);
         sprintf(buffer, "Temperatura: %d C\n\r", tempdata[i]);
         UART_PutString(buffer);
     }
-    tempdata[TEMP_DATA_SIZE-1] = I2C_MasterReadByte(I2C_NAK_DATA);
+    crc_value_rec = I2C_MasterReadByte(I2C_NAK_DATA);
+    
+    crc_value_check = crc_calculate(tempdata, TEMP_DATA_SIZE);
+    if(crc_value_check==crc_value_rec){
+        // data ok        
+    }
 
     sprintf(buffer, "Temperatura: %d C\n\r", tempdata[TEMP_DATA_SIZE-1]);
     UART_PutString(buffer);
@@ -267,6 +275,9 @@ void option4()
     I2C_Start();
     SR_Write(1);
     char buffer[200];
+    uint8_t raw_buff[6];
+    uint8_t crc_value_rec;
+    uint8_t crc_value_check;
     
     // Definir comando
     uint8 command = 0x1C;
@@ -278,19 +289,38 @@ void option4()
     while(0u == (I2C_MasterStatus() & I2C_MSTAT_WR_CMPLT)){}
     // Enviar Repeated Start
     I2C_MasterSendRestart(I2C_ATMEL_SLAVE_ADDR, 1);
-    // Leer Max, Min, Prom
+    
+    for (int i = 0; i<6; i++)
+    {
+        raw_buff[i] = I2C_MasterReadByte(I2C_ACK_DATA);        
+    }
+    crc_value_rec = I2C_MasterReadByte(I2C_NAK_DATA);
+    
+    // Leer Max, Min, Prom 
+    /*
     max = I2C_MasterReadByte(I2C_ACK_DATA);
     max_time = I2C_MasterReadByte(I2C_ACK_DATA);
     min = I2C_MasterReadByte(I2C_ACK_DATA);
     min_time = I2C_MasterReadByte(I2C_ACK_DATA);
     prom = I2C_MasterReadByte(I2C_ACK_DATA);
-    prom_dec = I2C_MasterReadByte(I2C_NAK_DATA);
+    prom_dec= I2C_MasterReadByte(I2C_ACK_DATA);    
+    crc_value_rec = I2C_MasterReadByte(I2C_NAK_DATA);
+    */
+    
+    
     // Terminar comunicación
     I2C_MasterSendStop();
     // Borrar Buffer
     I2C_MasterClearWriteBuf();
     SR_Write(0);
-    sprintf(buffer, "Maximo: %d C Tiempo: %d min\n\rMinimo: %d C Tiempo: %d min\n\rPromedio: %d.%d C\n\r", max,max_time, min,min_time, prom, prom_dec);
+    // crc 
+    
+    
+    crc_value_check = crc_calculate(raw_buff, 6);
+    if(crc_value_check==crc_value_rec){
+        // data ok        
+    }    
+    sprintf(buffer, "Maximo: %d C Tiempo: %d min\n\rMinimo: %d C Tiempo: %d min\n\rPromedio: %d.%d C\n\r", raw_buff[0],raw_buff[1],raw_buff[2],raw_buff[3],raw_buff[4],raw_buff[5]);
     UART_PutString(buffer);
     
 }

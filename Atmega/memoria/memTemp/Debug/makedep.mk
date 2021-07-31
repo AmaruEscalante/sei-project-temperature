@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+crc.c
+
 I2CSlave.c
 
 main.c
