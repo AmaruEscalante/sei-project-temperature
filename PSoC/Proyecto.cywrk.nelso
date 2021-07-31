@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Proyecto\menuPSoC\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Proyecto\menuPSoC">
 <ExpandedNodeIds>
 <v>Proyecto</v>
 <v>Proyecto\menuPSoC</v>
@@ -38,6 +38,8 @@
 <v>Proyecto\menuPSoC\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Proyecto</v>
+<v>Proyecto\menuPSoC</v>
 <v>Proyecto\menuPSoC\TopDesign</v>
 <v>Proyecto\menuPSoC\menuPSoC.cydwr</v>
 <v>Proyecto\menuPSoC\menuPSoC.cydwr\Pins</v>
@@ -84,8 +86,6 @@
 <v>Proyecto\menuPSoC\Generated_Source\PSoC5\cyfittergnu.inc</v>
 <v>Proyecto\menuPSoC\Generated_Source\PSoC5\cyfitteriar.inc</v>
 <v>Proyecto\menuPSoC\Generated_Source\PSoC5\cyfitterrv.inc</v>
-<v>Proyecto\menuPSoC\Generated_Source\PSoC5\cymetadata.c</v>
-<v>Proyecto\menuPSoC\Generated_Source\PSoC5\project.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">

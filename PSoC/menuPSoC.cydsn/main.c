@@ -130,7 +130,7 @@ void option2()
 {
     char buffer[26];
     float prom;
-        
+    
     UART_PutString("Option 2 selected\r");
     UART_PutString("Start temperature monitoring\r");
     I2C_Start();
@@ -229,6 +229,7 @@ void option3()
     UART_PutString("Option 3 selected\r");
     UART_Start();
     I2C_Start();
+    SR_Write(1);
     char buffer[100];
     char tempdata[TEMP_DATA_SIZE];
     
@@ -255,7 +256,8 @@ void option3()
     // Terminar comunicación
     I2C_MasterSendStop();
     // Borrar Buffer
-    I2C_MasterClearWriteBuf();   
+    I2C_MasterClearWriteBuf();
+    SR_Write(0);
 }
 
 void option4()
@@ -263,6 +265,7 @@ void option4()
     UART_PutString("Option 4 selected\r");
     UART_Start();
     I2C_Start();
+    SR_Write(1);
     char buffer[200];
     
     // Definir comando
@@ -286,10 +289,10 @@ void option4()
     I2C_MasterSendStop();
     // Borrar Buffer
     I2C_MasterClearWriteBuf();
-    
+    SR_Write(0);
     sprintf(buffer, "Maximo: %d C Tiempo: %d min\n\rMinimo: %d C Tiempo: %d min\n\rPromedio: %d.%d C\n\r", max,max_time, min,min_time, prom, prom_dec);
     UART_PutString(buffer);
-        
+    
 }
 
 int main(void)

@@ -5,6 +5,7 @@
  * Author : Humberto
  */ 
 
+#include "I2CSlave.h"
 
 #define F_CPU 1000000UL // 1 MHz clock speed
 
@@ -14,6 +15,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+// Atmel Slave variables
+#define I2C_ADDR 0x20
+
+volatile uint8_t command;
+volatile uint8_t data;
+
+uint8_t mean_counter = 1;
+uint8_t data_counter = 0;
+
+#define SR PIND2;
 
 // DS1621 registers
 #define DS1621 0x48 //DS1621 I2C address with A2, A1 and A0 connected to ground
@@ -31,7 +43,7 @@
 // SPI for EEPROM constants
 #define MOSI PIND4
 #define MISO PIND5
-#define SELECT PIND2
+#define SELECT PIND6
 #define CLK PIND3
 
 #define MEMORY_SIZE 99
@@ -41,6 +53,55 @@ uint8_t minuteflag = 0x00;
 uint8_t maxTemp = 0x00;
 uint8_t minTemp = 0xFF;
 float promedio = 0x00;
+
+//Atmel I2C Slave Interupts
+void I2C_received(uint8_t received_data)
+{
+	command = received_data;
+}
+
+void I2C_requested()
+{
+	if (command == 0x1C) {
+		if (mean_counter == 7){
+			mean_counter = 0;
+		}
+		I2C_transmitByte(read_EEPROM(MEMORY_SIZE+mean_counter));
+		mean_counter++;
+		} else if (command == 0x1B){
+		if (data_counter == MEMORY_SIZE){
+			data_counter = 0;
+		}
+		I2C_transmitByte(read_EEPROM(data_counter));
+		data_counter++;
+	}
+}
+
+void SR_Interrupt_init()
+{
+	EICRA = (1 << ISC00);
+	EIMSK = (1 << INT0);
+}
+
+ISR(INT0){
+	
+	if (PIND & (1 << SR) == 2)
+	{
+		// set received/requested callbacks
+		I2C_setCallbacks(I2C_received, I2C_requested);
+
+		// init I2C
+		I2C_init(I2C_ADDR);
+		TIMSK1 &= ~(1<<OCIE1A);
+		
+	} else
+	{
+		TWI_init();
+		TIMSK1 |= (1<<OCIE1A);
+	}
+	
+}
+
 
 // EEPROM Functions
 void shift10bits(unsigned int data){
@@ -169,7 +230,8 @@ void Success()
 
 void TWI_init()
 {
-	TWCR = (1<<TWEN); // Enable I2C protocol
+	TWCR &= ~(1<<TWEA | (1<<TWIE)); // Clear TWEA and TWIE from slave mode
+	TWCR |= (1<<TWEN); // Enable I2C protocol
 	TWSR = 0x00; // Prescaler = 1
 	TWBR = 0x0C; // Bit Rate = 12 -> 1M/(16+2*12*1) = 25K
 }
@@ -385,6 +447,7 @@ int main(void)
 {	
 	TWI_init();
 	DS1621_Init();
+	SR_Interrupt_init();
 	
 	DDRD |= (1 << MOSI) | (1 << CLK) | (1 << SELECT); // MOSI, CLK, SELECT(CS) SALIDAS
 	DDRD &= ~(1 << PIND5); // MISO ENTRADA
