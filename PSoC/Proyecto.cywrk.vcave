@@ -38,30 +38,7 @@
 <v>Proyecto\menuPSoC\Source Files\monitor_temperature.c</v>
 <v>Proyecto\menuPSoC\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Proyecto</v>
-<v>Proyecto\menuPSoC</v>
-<v>Proyecto\menuPSoC\TopDesign</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Pins</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Analog</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Clocks</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Interrupts</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\DMA</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\System</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Directives</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Flash Security</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\EEPROM</v>
-<v>Proyecto\menuPSoC\Header Files</v>
-<v>Proyecto\menuPSoC\Header Files\crc.h</v>
-<v>Proyecto\menuPSoC\Header Files\cyapicallbacks.h</v>
-<v>Proyecto\menuPSoC\Header Files\monitor_temperature.h</v>
-<v>Proyecto\menuPSoC\Source Files</v>
-<v>Proyecto\menuPSoC\Source Files\crc.c</v>
-<v>Proyecto\menuPSoC\Source Files\main.c</v>
-<v>Proyecto\menuPSoC\Source Files\monitor_temperature.c</v>
-<v>Proyecto\menuPSoC\Generated_Source</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -70,12 +47,7 @@
 <v>Proyecto\menuPSoC\TopDesign</v>
 <v>Proyecto\menuPSoC\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Proyecto</v>
-<v>Proyecto\menuPSoC</v>
-<v>Proyecto\menuPSoC\TopDesign</v>
-<v>Proyecto\menuPSoC\TopDesign\TopDesign.cysch</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -91,19 +63,7 @@
 <v>Proyecto\menuPSoC\menuPSoC.rpt</v>
 <v>Proyecto\menuPSoC\menuPSoC_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Proyecto</v>
-<v>Proyecto\menuPSoC</v>
-<v>Proyecto\menuPSoC\CortexM3</v>
-<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541</v>
-<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug</v>
-<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\menuPSoC.elf</v>
-<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\menuPSoC.hex</v>
-<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\menuPSoC.map</v>
-<v>Proyecto\menuPSoC\menuPSoC.gpdsc</v>
-<v>Proyecto\menuPSoC\menuPSoC.rpt</v>
-<v>Proyecto\menuPSoC\menuPSoC_timing.html</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -123,18 +83,7 @@
 <v>Proyecto\menuPSoC\I2C_v3_50.pdf</v>
 <v>Proyecto\menuPSoC\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Proyecto</v>
-<v>Proyecto\menuPSoC</v>
-<v>Proyecto\menuPSoC\PSoC 5LP Architecture TRM</v>
-<v>Proyecto\menuPSoC\CY8C58LP Family Datasheet</v>
-<v>Proyecto\menuPSoC\System Reference Guides</v>
-<v>Proyecto\menuPSoC\cy_isr_v1_70.pdf</v>
-<v>Proyecto\menuPSoC\cy_pins_v2_20</v>
-<v>Proyecto\menuPSoC\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>Proyecto\menuPSoC\I2C_v3_50.pdf</v>
-<v>Proyecto\menuPSoC\UART_v2_50.pdf</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -142,7 +91,17 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\menuPSoC.cydsn\main.c" />
+<name v=".\menuPSoC.cydsn\crc.h" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1253, 480" SelectedTabbedMdiWindow="0f26cba8-39b1-4a23-9599-d905fa0f00c6"><DocumentWindow Key="D:\Documents\Cursos\interconectados\sei-project-temperature\PSoC\menuPSoC.cydsn\main.c" Guid="0f26cba8-39b1-4a23-9599-d905fa0f00c6" /><DocumentWindow Key="D:\Documents\Cursos\interconectados\sei-project-temperature\PSoC\menuPSoC.cydsn\crc.h" Guid="33563d81-3a7d-4809-abfc-7da2c8f7d303" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
