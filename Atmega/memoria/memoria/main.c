@@ -13,10 +13,10 @@
 #include <stdlib.h>
 
 // SPI for EEPROM constants
-#define MOSI PIND4
+#define MOSI PIND6
 #define MISO PIND5
-#define SELECT PIND2
-#define CLK PIND3
+#define SELECT PIND3
+#define CLK PIND4
 #define MY_UBRR 12
 
 #define MEMORY_SIZE 100
@@ -68,9 +68,9 @@ uint8_t getOutput(uint8_t address_local){
 	uint8_t response = 0x00;
 	for(uint8_t i = 0; i < 8; i++){
 		PORTD &= ~(1 << CLK);
-		//while( PORTD & (1<<CLK) ){PORTD &= ~(1 << CLK);}  // bucle para asegurar señal del clock en LOW
+		while( (PORTD & (1<<CLK)) == (1<<CLK) ){PORTD &= ~(1 << CLK);}  // bucle para asegurar señal del clock en LOW
 		PORTD |= (1 << CLK);
-		//while(~(PORTD & (1<<CLK))){PORTD |= (1 << CLK);}
+		while((PORTD & (1<<CLK)) != (1<<CLK) ){PORTD |= (1 << CLK);}
 		if(PIND & (1 << MISO))response |= 1 << (7-i);
 	}
 	PORTD &= ~(1 << CLK);
@@ -142,15 +142,15 @@ int main(void)
 {
 	
 	UART_Init(MY_UBRR);
+	DDRD |= (1 << PIND1);
 	DDRD |= (1 << MOSI) | (1 << CLK) | (1 << SELECT); // MOSI, CLK, SELECT(CS) SALIDAS
-	DDRD &= ~(1 << PIND5); // MISO ENTRADA
+	DDRD &= ~(1 << MISO); // MISO ENTRADA
 	
 	PORTD &= ~(1 << CLK); // clk = 0
 	
 	// LEDs
-	DDRD |= (1 << 6);
-	UART_Transmit('1');
-	UART_Transmit('2');
+	DDRD |= (1 << PIND7);
+
 	
     while (1) 
     {	
@@ -158,13 +158,12 @@ int main(void)
 		EWEN();
 		write_byte(count, rand() % (30 + 1 - 10) + 10 );
 		EWDS();
-		
-		
-		UART_Transmit('H');
-		UART_Transmit('I');
+	
 		
 		_delay_ms(5000);
-		read_EEPROM(count);
+		UART_Transmit(read_EEPROM(count));
+		write_byte(count, read_EEPROM(count));
+		
 	    count++;
 	}
 }

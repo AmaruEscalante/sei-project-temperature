@@ -15,7 +15,7 @@
 #ifndef MONITOR_TEMPERATURE_H
 #define MONITOR_TEMPERATURE_H
 // Codigos de Operacion dadas en la hoja de datos del sensor
-#define I2C_SLAVE_ADDR  0x4D
+#define I2C_SLAVE_ADDR  0x48
 
 // Comandos de lectura
 #define Read_Temp       0xAA // lee temperatura
