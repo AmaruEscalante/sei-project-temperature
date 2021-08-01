@@ -6,6 +6,7 @@
  */ 
 
 #include "I2CSlave.h"
+#include "crc.h"
 
 #define F_CPU 1000000UL // 1 MHz clock speed
 
@@ -24,6 +25,7 @@ volatile uint8_t data;
 
 uint8_t mean_counter = 1;
 uint8_t data_counter = 0;
+
 
 #define SR PIND2
 
@@ -53,6 +55,9 @@ uint8_t minuteflag = 0x00;
 uint8_t maxTemp = 0x00;
 uint8_t minTemp = 0xFF;
 float promedio = 0x00;
+
+uint8_t buffer_prom[6];
+uint8_t buffer_raw[MEMORY_SIZE];
 
 void SR_Interrupt_init()
 {
@@ -409,18 +414,42 @@ void I2C_received(uint8_t received_data)
 void I2C_requested()
 {
 	if (command == 0x1C) {
-		if (mean_counter == 7){
-			mean_counter = 0;
+		if (mean_counter < 7){
+			buffer_prom[mean_counter-1]=read_EEPROM(MEMORY_SIZE+mean_counter);
+			I2C_transmitByte(buffer_prom[mean_counter-1]);
+			mean_counter++;
+		
 		}
-		I2C_transmitByte(read_EEPROM(MEMORY_SIZE+mean_counter));
-		mean_counter++;
-		} else if (command == 0x1B){
-		if (data_counter == MEMORY_SIZE){
+		else if(mean_counter==7){
+			uint8_t crc_value;
+			crc_value = crc_calculate(buffer_prom,6);
+			I2C_transmitByte(crc_value);
+			mean_counter++;
+		}
+		else{
+			mean_counter=1;
+		}
+	} else if (command == 0x1B){
+		
+		if(data_counter<MEMORY_SIZE){
+			
+			buffer_raw[data_counter]=read_EEPROM(data_counter);
+			I2C_transmitByte(buffer_raw[data_counter]);
+			data_counter++;			
+		}
+		
+		else if (data_counter == MEMORY_SIZE){
+			uint8_t crc_value;
+			crc_value = crc_calculate(buffer_raw,MEMORY_SIZE);
+			I2C_transmitByte(crc_value);				
+		}
+		
+		else{
 			data_counter = 0;
 		}
-		I2C_transmitByte(read_EEPROM(data_counter));
-		data_counter++;
+
 	}
+	
 }
 
 ISR(INT0_vect){
