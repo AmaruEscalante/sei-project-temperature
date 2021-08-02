@@ -66,7 +66,7 @@ float read_temp(uint8 *data_l, uint8 *data_h)
     float prom = 0;
     for (uint8_t i = 0; i < 5; i++)
     {
-        // Leer temperatura
+        // Leer Temperature
         DS_ReadTemp(data_l, data_h);
         // Sumar valor del MSByte
         prom += (float)*data_h;
@@ -126,7 +126,7 @@ void option1()
 
         prom = read_temp(&data_l, &data_h);
 
-        sprintf(buffer, "Temperatura promedio: %0.1f\n\r", prom);
+        sprintf(buffer, "Average temperature: %0.1f\n\r", prom);
         UART_PutString(buffer);
         CyDelay(2000);
     }
@@ -162,7 +162,7 @@ void option2()
             break;
         }
         prom = read_temp(&data_l, &data_h);
-        sprintf(buffer, "TEMPERATURA PROMEDIO: %0.1f", prom);
+        sprintf(buffer, "Average temperature : %0.1f", prom);
         // Encriptacion
         // Llave ADFGVX
         int llave[6][6] = {
@@ -278,7 +278,7 @@ void option3()
     for (int i = 0; i < TEMP_DATA_SIZE; i++)
     {
         tempdata[i] = I2C_MasterReadByte(I2C_ACK_DATA);
-        sprintf(buffer, "Temperatura: %d C\n\r", tempdata[i]);
+        sprintf(buffer, "Temperature: %d C\n\r", tempdata[i]);
         UART_PutString(buffer);
     }
     crc_value_rec = I2C_MasterReadByte(I2C_NAK_DATA);
@@ -289,7 +289,7 @@ void option3()
         // data ok
     }
 
-    sprintf(buffer, "Temperatura: %d C\n\r", tempdata[TEMP_DATA_SIZE - 1]);
+    sprintf(buffer, "Temperature: %d C\n\r", tempdata[TEMP_DATA_SIZE - 1]);
     UART_PutString(buffer);
     // Terminar comunicación
     I2C_MasterSendStop();
@@ -349,9 +349,9 @@ void option4()
     crc_value_check = crc_calculate(raw_buff, 6);
     if (crc_value_check == crc_value_rec)
     {
-        // data ok
+        UART_PutString("CRC OK");
     }
-    sprintf(buffer, "Maximo: %d C Tiempo: %d min\n\rMinimo: %d C Tiempo: %d min\n\rPromedio: %d.%d C\n\r", raw_buff[0], raw_buff[1], raw_buff[2], raw_buff[3], raw_buff[4], raw_buff[5]);
+    sprintf(buffer, "Max: %d C Time: %d min\n\rMin: %d C Time: %d min\n\rMean: %d.%d C\n\r", raw_buff[0], raw_buff[1], raw_buff[2], raw_buff[3], raw_buff[4], raw_buff[5]);
     UART_PutString(buffer);
 }
 
@@ -423,7 +423,7 @@ CY_ISR(stop_temperature_conversion)
     char tmp = UART_GetChar();
     if (tmp == 'c' || tmp == 'C')
     {
-        UART_PutString("Se presiono C, termina de leer \r");
+        UART_PutString("'C' pressed, end of function\r");
         IS_READING_TEMPERATURE = false;
         Rx_ISR_Stop();
         // Atmel en modo maestro
