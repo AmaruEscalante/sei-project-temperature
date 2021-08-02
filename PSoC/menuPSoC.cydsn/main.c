@@ -66,7 +66,7 @@ float read_temp(uint8 *data_l, uint8 *data_h)
     float prom = 0;
     for (uint8_t i = 0; i < 5; i++)
     {
-        // Leer temperatura
+        // Read Temperature
         DS_ReadTemp(data_l, data_h);
         // Sumar valor del MSByte
         prom += (float)*data_h;
@@ -126,7 +126,7 @@ void option1()
 
         prom = read_temp(&data_l, &data_h);
 
-        sprintf(buffer, "Temperatura promedio: %0.1f\n\r", prom);
+        sprintf(buffer, "Average temperature: %0.1f\n\r", prom);
         UART_PutString(buffer);
         CyDelay(2000);
     }
@@ -162,7 +162,7 @@ void option2()
             break;
         }
         prom = read_temp(&data_l, &data_h);
-        sprintf(buffer, "TEMPERATURA PROMEDIO: %0.1f", prom);
+        sprintf(buffer, "Average temperature : %0.1f", prom);
         // Encriptacion
         // Llave ADFGVX
         int llave[6][6] = {
@@ -260,13 +260,9 @@ void option3()
     SR_Write(1);
     char buffer[100];
     char tempdata[TEMP_DATA_SIZE];
-<<<<<<< HEAD
-
-=======
     uint8_t crc_value_rec;
     uint8_t crc_value_check;
-    
->>>>>>> 28f18ff9ffa2784f5e0df821cce8a25d470bafa1
+
     // Definir comando
     uint8 command = 0x1B;
 
@@ -279,28 +275,21 @@ void option3()
     // Enviar Repeated Start
     I2C_MasterSendRestart(I2C_ATMEL_SLAVE_ADDR, 1);
     // Leer 99 datos
-<<<<<<< HEAD
-    for (int i = 0; i < TEMP_DATA_SIZE - 1; i++)
-=======
-    for (int i = 0; i<TEMP_DATA_SIZE; i++)
->>>>>>> 28f18ff9ffa2784f5e0df821cce8a25d470bafa1
+    for (int i = 0; i < TEMP_DATA_SIZE; i++)
     {
         tempdata[i] = I2C_MasterReadByte(I2C_ACK_DATA);
-        sprintf(buffer, "Temperatura: %d C\n\r", tempdata[i]);
+        sprintf(buffer, "Temperature: %d C\n\r", tempdata[i]);
         UART_PutString(buffer);
     }
-<<<<<<< HEAD
-    tempdata[TEMP_DATA_SIZE - 1] = I2C_MasterReadByte(I2C_NAK_DATA);
-=======
     crc_value_rec = I2C_MasterReadByte(I2C_NAK_DATA);
-    
-    crc_value_check = crc_calculate(tempdata, TEMP_DATA_SIZE);
-    if(crc_value_check==crc_value_rec){
-        // data ok        
-    }
->>>>>>> 28f18ff9ffa2784f5e0df821cce8a25d470bafa1
 
-    sprintf(buffer, "Temperatura: %d C\n\r", tempdata[TEMP_DATA_SIZE - 1]);
+    crc_value_check = crc_calculate((uint8_t*)tempdata, TEMP_DATA_SIZE);
+    if (crc_value_check == crc_value_rec)
+    {
+        UART_PutString("CRC OK\r");
+    }
+
+    sprintf(buffer, "Temperature: %d C\n\r", tempdata[TEMP_DATA_SIZE - 1]);
     UART_PutString(buffer);
     // Terminar comunicación
     I2C_MasterSendStop();
@@ -316,17 +305,12 @@ void option4()
     I2C_Start();
     SR_Write(1);
     char buffer[200];
-<<<<<<< HEAD
-
-=======
     uint8_t raw_buff[6];
     uint8_t crc_value_rec;
     uint8_t crc_value_check;
-    
->>>>>>> 28f18ff9ffa2784f5e0df821cce8a25d470bafa1
+
     // Definir comando
     uint8 command = 0x1C;
-    uint8 max, min, prom, max_time, min_time, prom_dec;
 
     // Enviar por I2C
     I2C_MasterWriteBuf(I2C_ATMEL_SLAVE_ADDR, &command, 1, I2C_MODE_NO_STOP);
@@ -336,42 +320,26 @@ void option4()
     }
     // Enviar Repeated Start
     I2C_MasterSendRestart(I2C_ATMEL_SLAVE_ADDR, 1);
-    
-    for (int i = 0; i<6; i++)
+
+    for (int i = 0; i < 6; i++)
     {
-        raw_buff[i] = I2C_MasterReadByte(I2C_ACK_DATA);        
+        raw_buff[i] = I2C_MasterReadByte(I2C_ACK_DATA);
     }
     crc_value_rec = I2C_MasterReadByte(I2C_NAK_DATA);
-    
-    // Leer Max, Min, Prom 
-    /*
-    max = I2C_MasterReadByte(I2C_ACK_DATA);
-    max_time = I2C_MasterReadByte(I2C_ACK_DATA);
-    min = I2C_MasterReadByte(I2C_ACK_DATA);
-    min_time = I2C_MasterReadByte(I2C_ACK_DATA);
-    prom = I2C_MasterReadByte(I2C_ACK_DATA);
-    prom_dec= I2C_MasterReadByte(I2C_ACK_DATA);    
-    crc_value_rec = I2C_MasterReadByte(I2C_NAK_DATA);
-    */
-    
-    
+
     // Terminar comunicación
     I2C_MasterSendStop();
     // Borrar Buffer
     I2C_MasterClearWriteBuf();
     SR_Write(0);
-<<<<<<< HEAD
-    sprintf(buffer, "Maximo: %d C Tiempo: %d min\n\rMinimo: %d C Tiempo: %d min\n\rPromedio: %d.%d C\n\r", max, max_time, min, min_time, prom, prom_dec);
-=======
-    // crc 
-    
-    
+    // crc
+
     crc_value_check = crc_calculate(raw_buff, 6);
-    if(crc_value_check==crc_value_rec){
-        // data ok        
-    }    
-    sprintf(buffer, "Maximo: %d C Tiempo: %d min\n\rMinimo: %d C Tiempo: %d min\n\rPromedio: %d.%d C\n\r", raw_buff[0],raw_buff[1],raw_buff[2],raw_buff[3],raw_buff[4],raw_buff[5]);
->>>>>>> 28f18ff9ffa2784f5e0df821cce8a25d470bafa1
+    if (crc_value_check == crc_value_rec)
+    {
+        UART_PutString("CRC OK\r");
+    }
+    sprintf(buffer, "Max: %d C Time: %d min\n\rMin: %d C Time: %d min\n\rMean: %d.%d C\n\r", raw_buff[0], raw_buff[1], raw_buff[2], raw_buff[3], raw_buff[4], raw_buff[5]);
     UART_PutString(buffer);
 }
 
@@ -443,7 +411,7 @@ CY_ISR(stop_temperature_conversion)
     char tmp = UART_GetChar();
     if (tmp == 'c' || tmp == 'C')
     {
-        UART_PutString("Se presiono C, termina de leer \r");
+        UART_PutString("'C' pressed, end of function\r");
         IS_READING_TEMPERATURE = false;
         Rx_ISR_Stop();
         // Atmel en modo maestro

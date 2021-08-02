@@ -6,7 +6,7 @@
 // polynomial
 uint8_t key = 0x8C; // 1000 1100 -> x^7 + x^3 + x^2
 
-uint8_t crc_calculate(uint8_t datos[], int len){
+uint8_t crc_calculate(uint8_t* datos, int len){
 	uint8_t crc_value = 0x00;	
 	uint8_t temp  = 0x00;
 	uint8_t sum = 0x00;
