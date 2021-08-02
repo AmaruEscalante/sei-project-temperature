@@ -76,7 +76,7 @@ void shift10bits(unsigned int data)
 		else
 			PORTD &= ~(1 << MOSI);
 		PORTD |= (1 << CLK);					 // se�al del clock en HIGH
-		while (PORTD & (1 << CLK) != (1 << CLK)) // se�al del clock en HIGH
+		while ((PORTD & (1 << CLK)) != (1 << CLK)) // se�al del clock en HIGH
 		{
 			PORTD |= (1 << CLK);
 		}
@@ -99,7 +99,7 @@ void shiftdata(uint8_t data_write)
 
 		PORTD |= (1 << CLK);
 
-		while (PORTD & (1 << CLK) != (1 << CLK)) // se�al del clock en HIGH
+		while ((PORTD & (1 << CLK)) != (1 << CLK)) // se�al del clock en HIGH
 		{
 			PORTD |= (1 << CLK);
 		}
@@ -117,7 +117,7 @@ uint8_t getOutput(uint8_t address_local)
 	{
 		PORTD &= ~(1 << CLK);
 		PORTD |= (1 << CLK);
-		while (PORTD & (1 << CLK) != (1 << CLK))
+		while ((PORTD & (1 << CLK)) != (1 << CLK))
 		{
 			PORTD |= (1 << CLK);
 		}
@@ -158,11 +158,8 @@ void write_byte(uint8_t address_write, uint8_t data_write)
 
 void EWEN()
 {
-	// x8
-	// Start bit = 1
-	// read op code = 00
-	// Address A6-A0 A6=1 A5=1 A4-A0=X
-
+	// Mode x8 , Start bit=1, Read OpCode=00, Address A6-A0 A6=1 A5=1
+	
 	unsigned int data = 0x0260; // 0b 0000 0010 0110 0000
 	shift10bits(data);			// Enviamos los 10 bits uno por uno con el orden de MSB
 	PORTD &= ~(1 << SELECT);	// Desactivamos el selector
@@ -192,9 +189,7 @@ void writeAll(uint8_t data_write)
 	shiftdata(data_write);
 	PORTD &= ~(1 << SELECT); // Desactivamos el selector
 	PORTD |= (1 << SELECT);	 // Activamos el check status
-	while ((PIND && (1 << MISO)) == 0)
-	{
-	};						 // Bucle para esperar
+	while ((PIND & (1 << MISO)) != (1 << MISO)){};// Bucle para esperar
 	PORTD &= ~(1 << SELECT); // Terminamos el check status
 }
 
@@ -205,8 +200,8 @@ void timerInit()
 	TCCR1B = (1 << WGM12) | (1 << CS12) | (1 << CS10); // CTC and prescaler 1024
 	TIMSK1 |= (1 << OCIE1A);
 	// formula: x seconds / 1024/10^6
-	OCR1A = 58594; // 60 seconds
-				   // OCR1A = 4883; // 5 seconds
+	//OCR1A = 58594; // 60 seconds
+	 OCR1A = 4883; // 5 seconds
 }
 
 void Error()
@@ -411,7 +406,7 @@ ISR(TIMER1_COMPA_vect)
 	{
 		write_byte(MEMORY_SIZE + 1, temperature); // Almacenando temperatura maxima
 		// write_byte(MEMORY_SIZE + 2, conthist);
-		write_byte(MEMORY_SIZE + 2, 0x0A);
+		write_byte(MEMORY_SIZE + 2, (uint8_t)conthist);
 		maxTemp = temperature;
 	}
 
@@ -419,7 +414,7 @@ ISR(TIMER1_COMPA_vect)
 	{
 		write_byte(MEMORY_SIZE + 3, temperature); // Almacenando temperatura minima
 		// write_byte(MEMORY_SIZE + 4, conthist);	  // Almacenando tiempo
-		write_byte(MEMORY_SIZE + 4, 0xA0); // Almacenando tiempo
+		write_byte(MEMORY_SIZE + 4, (uint8_t)conthist); // Almacenando tiempo
 		minTemp = temperature;
 	}
 
@@ -524,6 +519,10 @@ int main(void)
 
 	sei();
 	timerInit();
+	
+	EWEN();
+	writeAll(0x00);
+	EWDS();
 
 	while (1)
 	{
@@ -533,9 +532,6 @@ int main(void)
 
 			minuteflag = 0x00;
 		}
-
-		//_delay_ms(1000);
-		//readhundredtemp();
 	}
 }
 

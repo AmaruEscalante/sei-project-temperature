@@ -1,0 +1,15 @@
+﻿------ Build started: Project: memTemp, Configuration: Debug AVR ------
+Build started.
+Project "memTemp.cproj" (default targets):
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "CoreBuild" in file "C:\Program Files (x86)\Atmel\Studio\7.0\Vs\Compiler.targets" from project "C:\Users\user_00011\Documents\Atmel Studio\7.0\sei-project-temperature\sei-project-temperature\Atmega\memoria\memTemp\memTemp.cproj" (target "Build" depends on it):
+	Task "RunCompilerTask"
+		Shell Utils Path C:\Program Files (x86)\Atmel\Studio\7.0\shellUtils
+		C:\Program Files (x86)\Atmel\Studio\7.0\shellUtils\make.exe all --jobs 8 --output-sync 
+		make: *** No rule to make target 'd:\program files (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h', needed by 'main.o'.  Stop.
+	Done executing task "RunCompilerTask" -- FAILED.
+Done building target "CoreBuild" in project "memTemp.cproj" -- FAILED.
+Done building project "memTemp.cproj" -- FAILED.
+
+Build FAILED.
+========== Build: 0 succeeded or up-to-date, 1 failed, 0 skipped ==========
