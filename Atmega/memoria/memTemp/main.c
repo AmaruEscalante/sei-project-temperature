@@ -205,8 +205,8 @@ void timerInit()
 	TCCR1B = (1 << WGM12) | (1 << CS12) | (1 << CS10); // CTC and prescaler 1024
 	TIMSK1 |= (1 << OCIE1A);
 	// formula: x seconds / 1024/10^6
-	//OCR1A = 58594; // 60 seconds
-	OCR1A = 4883; // 5 seconds
+	OCR1A = 58594; // 60 seconds
+				   // OCR1A = 4883; // 5 seconds
 }
 
 void Error()
@@ -436,23 +436,6 @@ ISR(TIMER1_COMPA_vect)
 		write_byte(MEMORY_SIZE, hundred_count);
 	}
 	EWDS();
-
-	// START DEBUG
-
-	uint8_t readed_value;
-
-	if (count > 0)
-		readed_value = read_EEPROM(count - 1);
-
-	readed_value = read_EEPROM(MEMORY_SIZE + 1);
-	readed_value = read_EEPROM(MEMORY_SIZE + 2);
-	readed_value = read_EEPROM(MEMORY_SIZE + 3);
-	readed_value = read_EEPROM(MEMORY_SIZE + 4);
-	readed_value = read_EEPROM(MEMORY_SIZE + 5);
-	readed_value = read_EEPROM(MEMORY_SIZE + 6);
-	// readmaxminprom();
-	//readhundredtemp(temp);
-	// END DEBUG
 }
 
 //Atmel I2C Slave Interupts
@@ -541,19 +524,6 @@ int main(void)
 
 	sei();
 	timerInit();
-
-	EWEN();
-
-	write_byte(MEMORY_SIZE, 0x00);
-	write_byte(MEMORY_SIZE + 1, 0x00);
-	write_byte(MEMORY_SIZE + 2, 0x00);
-	write_byte(MEMORY_SIZE + 3, 0x00);
-	write_byte(MEMORY_SIZE + 4, 0x00);
-	write_byte(MEMORY_SIZE + 5, 0x00);
-	write_byte(MEMORY_SIZE + 6, 0x00);
-	write_byte(MEMORY_SIZE + 7, 0x00);
-
-	EWDS();
 
 	while (1)
 	{

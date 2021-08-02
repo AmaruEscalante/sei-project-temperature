@@ -286,7 +286,7 @@ void option3()
     crc_value_check = crc_calculate((uint8_t)tempdata, TEMP_DATA_SIZE);
     if (crc_value_check == crc_value_rec)
     {
-        // data ok
+        UART_PutString("CRC OK\r");
     }
 
     sprintf(buffer, "Temperature: %d C\n\r", tempdata[TEMP_DATA_SIZE - 1]);
@@ -349,7 +349,7 @@ void option4()
     crc_value_check = crc_calculate(raw_buff, 6);
     if (crc_value_check == crc_value_rec)
     {
-        UART_PutString("CRC OK");
+        UART_PutString("CRC OK\r");
     }
     sprintf(buffer, "Max: %d C Time: %d min\n\rMin: %d C Time: %d min\n\rMean: %d.%d C\n\r", raw_buff[0], raw_buff[1], raw_buff[2], raw_buff[3], raw_buff[4], raw_buff[5]);
     UART_PutString(buffer);
