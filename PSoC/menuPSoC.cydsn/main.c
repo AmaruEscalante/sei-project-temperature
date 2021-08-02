@@ -66,7 +66,7 @@ float read_temp(uint8 *data_l, uint8 *data_h)
     float prom = 0;
     for (uint8_t i = 0; i < 5; i++)
     {
-        // Leer Temperature
+        // Read Temperature
         DS_ReadTemp(data_l, data_h);
         // Sumar valor del MSByte
         prom += (float)*data_h;
