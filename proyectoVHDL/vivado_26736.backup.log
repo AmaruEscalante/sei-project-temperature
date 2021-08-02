@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri Jul 30 18:08:46 2021
+# Process ID: 26736
+# Current directory: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22760 C:\Users\Alessio\Desktop\localGits\sei-project-temperature\proyectoVHDL\proyectoVHDL.xpr
+# Log file: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/vivado.log
+# Journal file: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 822.176 ; gain = 174.027
+update_compile_order -fileset sources_1
+open_example_project -force -dir C:/Users/Alessio/Desktop/localGits/sei-project-temperature [get_ips  axi_iic_0]
+INFO: [IP_Flow 19-1686] Generating 'Examples' target for IP 'axi_iic_0'...
+open_example_project: Time (s): cpu = 00:00:06 ; elapsed = 00:01:09 . Memory (MB): peak = 883.211 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jul 30 18:13:25 2021...

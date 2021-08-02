@@ -1,0 +1,179 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 31 19:26:58 2021
+# Process ID: 20956
+# Current directory: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent36836 C:\Users\Alessio\Desktop\localGits\sei-project-temperature\proyectoVHDL\proyectoVHDL.xpr
+# Log file: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/vivado.log
+# Journal file: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/top.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/top.vhd
+export_ip_user_files -of_objects  [get_files C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/ip/axi_iic_0/axi_iic_0.xci] -no_script -reset -force -quiet
+remove_files  C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/ip/axi_iic_0/axi_iic_0.xci
+file delete -force C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/ip/axi_iic_0
+add_files -norecurse {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/async_rst_ckt.vhd C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_simulation
+source Tb_nonsynth.tcl
+close_sim
+launch_simulation
+source Tb_nonsynth.tcl
+add_files -norecurse {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/timescale.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlaveTop.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/registerInterface.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_sim
+launch_simulation
+source Tb_nonsynth.tcl
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 303
+close_sim
+launch_simulation
+source Tb_nonsynth.tcl
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 303
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 303
+run 10 us
+restart
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 305
+run all
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 310
+restart
+run all
+run all
+run all
+restart
+run all
+run all
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 315
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 310
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 320
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 328
+run all
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 333
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 338
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 343
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 359
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 361
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 371
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 378
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 392
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 398
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 398
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 398
+run all
+close_sim
+launch_simulation
+source Tb_nonsynth.tcl
+run all
+restart
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 303
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 303
+restart
+run all
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 398
+run all
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 392
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 378
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 371
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 361
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 359
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 343
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 338
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 333
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 328
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 320
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 315
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 305
+restart
+run all
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 305
+run all
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 305
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 310
+run all
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 310
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 315
+run all
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 320
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 315
+run all
+run all
+restart
+run all
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 320
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 320
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 320
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 315
+run all
+close_sim
+launch_simulation
+source Tb_nonsynth.tcl
+close_sim

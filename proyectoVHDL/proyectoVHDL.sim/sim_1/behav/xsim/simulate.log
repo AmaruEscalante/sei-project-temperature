@@ -1,0 +1,5 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
