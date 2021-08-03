@@ -1,0 +1,9 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+Stopped at time : 87250 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd" Line 123
+Note: Test Passed - Correct Byte Received
+Time: 174250 ns  Iteration: 0  Process: /uart_tb/line__109  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd
+Stopped at time : 174250 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd" Line 134
+Stopped at time : 87250 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd" Line 123
+Stopped at time : 87350 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd" Line 124
+Stopped at time : 174150 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd" Line 125

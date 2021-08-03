@@ -1,0 +1,15 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd,1627951735,vhdl,,,,tb_nonsynth,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/async_rst_ckt.vhd,1566074674,vhdl,,,,async_rst_ckt,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave.v,1226150111,verilog,,C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlaveTop.v,C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave_define.v,i2cSlave,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlaveTop.v,1226150111,verilog,,C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/registerInterface.v,C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave_define.v,i2cSlaveTop,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave_define.v,1566003015,verilog,,,,,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd,1566497526,vhdl,,,,my_i2c_master,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/registerInterface.v,1627951482,verilog,,C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v,C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave_define.v,registerInterface,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v,1627948954,verilog,,,C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/timescale.v;C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave_define.v,serialInterface,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd,1562329277,vhdl,,,,synchronizer,,,,,,,,
+C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/timescale.v,1226150111,verilog,,,,,,,,,,,,

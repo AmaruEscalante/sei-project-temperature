@@ -1,0 +1,15 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+Stopped at time : 100 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 305
+Stopped at time : 200 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 310
+Stopped at time : 112775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 315
+Stopped at time : 687775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 328
+Stopped at time : 817775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 333
+Stopped at time : 932775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 338
+Stopped at time : 1062775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 343
+Stopped at time : 1392775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 359
+Stopped at time : 1502775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 371
+Stopped at time : 1537775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 373
