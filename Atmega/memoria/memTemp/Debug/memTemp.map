@@ -40,7 +40,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 Allocating common symbols
 Common symbol       size              file
 
-buffer_raw          0x63              main.o
+buffer_raw          0x64              main.o
 command             0x1               main.o
 data                0x1               main.o
 buffer_prom         0x6               main.o
@@ -550,7 +550,7 @@ END GROUP
                 0x00800104                _edata = .
                 0x00800104                PROVIDE (__data_end, .)
 
-.bss            0x00800104       0x77
+.bss            0x00800104       0x78
                 0x00800104                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
@@ -569,20 +569,20 @@ END GROUP
                 0x0080010f        0x1 main.o
                 0x0080010f                data_counter
  *(COMMON)
- COMMON         0x00800110       0x6b main.o
+ COMMON         0x00800110       0x6c main.o
                 0x00800110                buffer_raw
-                0x00800173                command
-                0x00800174                data
-                0x00800175                buffer_prom
-                0x0080017b                PROVIDE (__bss_end, .)
+                0x00800174                command
+                0x00800175                data
+                0x00800176                buffer_prom
+                0x0080017c                PROVIDE (__bss_end, .)
                 0x00000b9e                __data_load_start = LOADADDR (.data)
                 0x00000ba2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080017b        0x0
+.noinit         0x0080017c        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080017b                _end = .
+                0x0080017c                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Proyecto\menuPSoC\menuPSoC.cydwr\Pins">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Proyecto\menuPSoC\Source Files\main.c">
 <ExpandedNodeIds>
 <v>Proyecto</v>
 <v>Proyecto\menuPSoC</v>
@@ -29,35 +29,47 @@
 <v>Proyecto\menuPSoC\menuPSoC.cydwr\Flash Security</v>
 <v>Proyecto\menuPSoC\menuPSoC.cydwr\EEPROM</v>
 <v>Proyecto\menuPSoC\Header Files</v>
+<v>Proyecto\menuPSoC\Header Files\crc.h</v>
 <v>Proyecto\menuPSoC\Header Files\cyapicallbacks.h</v>
 <v>Proyecto\menuPSoC\Header Files\monitor_temperature.h</v>
 <v>Proyecto\menuPSoC\Source Files</v>
-<v>Proyecto\menuPSoC\Source Files\main.c</v>
-<v>Proyecto\menuPSoC\Source Files\monitor_temperature.c</v>
-<v>Proyecto\menuPSoC\Generated_Source</v>
-</ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Proyecto</v>
-<v>Proyecto\menuPSoC</v>
-<v>Proyecto\menuPSoC\TopDesign</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Pins</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Analog</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Clocks</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Interrupts</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\DMA</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\System</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Directives</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\Flash Security</v>
-<v>Proyecto\menuPSoC\menuPSoC.cydwr\EEPROM</v>
-<v>Proyecto\menuPSoC\Header Files</v>
-<v>Proyecto\menuPSoC\Header Files\cyapicallbacks.h</v>
-<v>Proyecto\menuPSoC\Header Files\monitor_temperature.h</v>
-<v>Proyecto\menuPSoC\Source Files</v>
+<v>Proyecto\menuPSoC\Source Files\crc.c</v>
 <v>Proyecto\menuPSoC\Source Files\main.c</v>
 <v>Proyecto\menuPSoC\Source Files\monitor_temperature.c</v>
 <v>Proyecto\menuPSoC\Generated_Source</v>
 <v>Proyecto\menuPSoC\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Proyecto</v>
+<v>Proyecto\Exp1</v>
+<v>Proyecto\Lab05_Exp3</v>
+<v>Proyecto\menuPSoC</v>
+<v>Proyecto\menuPSoC\TopDesign</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\Pins</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\Analog</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\Clocks</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\Interrupts</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\DMA</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\System</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\Directives</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\Flash Security</v>
+<v>Proyecto\menuPSoC\menuPSoC.cydwr\EEPROM</v>
+<v>Proyecto\menuPSoC\Header Files</v>
+<v>Proyecto\menuPSoC\Header Files\crc.h</v>
+<v>Proyecto\menuPSoC\Header Files\cyapicallbacks.h</v>
+<v>Proyecto\menuPSoC\Header Files\monitor_temperature.h</v>
+<v>Proyecto\menuPSoC\Source Files</v>
+<v>Proyecto\menuPSoC\Source Files\crc.c</v>
+<v>Proyecto\menuPSoC\Source Files\main.c</v>
+<v>Proyecto\menuPSoC\Source Files\monitor_temperature.c</v>
+<v>Proyecto\menuPSoC\Generated_Source</v>
+<v>Proyecto\menuPSoC\Generated_Source\PSoC5</v>
+<v>Proyecto\menuPSoC\Generated_Source\PSoC5\cy_boot</v>
+<v>Proyecto\menuPSoC\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>Proyecto\menuPSoC\Generated_Source\PSoC5\I2C</v>
+<v>Proyecto\menuPSoC\Generated_Source\PSoC5\Rx_ISR</v>
+<v>Proyecto\menuPSoC\Generated_Source\PSoC5\SCL</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -69,6 +81,8 @@
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Proyecto</v>
+<v>Proyecto\Exp1</v>
+<v>Proyecto\Lab05_Exp3</v>
 <v>Proyecto\menuPSoC</v>
 <v>Proyecto\menuPSoC\TopDesign</v>
 <v>Proyecto\menuPSoC\TopDesign\TopDesign.cysch</v>
@@ -78,16 +92,77 @@
 <ExpandedNodeIds>
 <v>Proyecto</v>
 <v>Proyecto\menuPSoC</v>
+<v>Proyecto\menuPSoC\CortexM3</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\crc.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_BOOT.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_INT.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_MASTER.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_PM.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_SLAVE.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\monitor_temperature.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\Rx_ISR.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\SR.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\menuPSoC.elf</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\menuPSoC.hex</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\menuPSoC.map</v>
 <v>Proyecto\menuPSoC\menuPSoC.gpdsc</v>
 <v>Proyecto\menuPSoC\menuPSoC.rpt</v>
 <v>Proyecto\menuPSoC\menuPSoC_timing.html</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Proyecto</v>
+<v>Proyecto\Exp1</v>
+<v>Proyecto\Lab05_Exp3</v>
 <v>Proyecto\menuPSoC</v>
-<v>Proyecto\menuPSoC\menuPSoC.gpdsc</v>
-<v>Proyecto\menuPSoC\menuPSoC.rpt</v>
-<v>Proyecto\menuPSoC\menuPSoC_timing.html</v>
+<v>Proyecto\menuPSoC\CortexM3</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\crc.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_BOOT.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_INT.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_MASTER.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_PM.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_SLAVE.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\monitor_temperature.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\Rx_ISR.lst</v>
+<v>Proyecto\menuPSoC\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -128,8 +203,21 @@
 </dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
-<Unloaded />
-<OpenDocs />
+<Unloaded>
+<project v="..\..\lab05-i2c-tempsensor\Lab05_Exp3.cydsn\Lab05_Exp3.cyprj" />
+<project v="..\..\Lab6-final\Lab6\Exp1.cydsn\Exp1.cyprj" />
+</Unloaded>
+<OpenDocs>
+<name v=".\menuPSoC.cydsn\menuPSoC.cydwr" />
+<name v=".\menuPSoC.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="978, 385" SelectedTabbedMdiWindow="6ad020c4-6a06-4684-980c-143dd8cff88b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="90d90f49-06e3-4af2-b574-84f815ceadbb" /><DocumentWindow Key="C:\Users\user_00011\Documents\Atmel Studio\7.0\sei-project-temperature\sei-project-temperature\PSoC\menuPSoC.cydsn\menuPSoC.cydwr" Guid="66eaf618-0e44-42d3-89ea-898e599fbaa7" /><DocumentWindow Key="C:\Users\user_00011\Documents\Atmel Studio\7.0\sei-project-temperature\sei-project-temperature\PSoC\menuPSoC.cydsn\main.c" Guid="6ad020c4-6a06-4684-980c-143dd8cff88b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

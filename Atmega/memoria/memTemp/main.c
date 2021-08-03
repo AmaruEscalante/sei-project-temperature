@@ -46,7 +46,7 @@ uint8_t data_counter = 0;
 #define SELECT PIND6
 #define CLK PIND3
 
-#define MEMORY_SIZE 99
+#define MEMORY_SIZE 100
 
 uint8_t count = 0x00;
 uint8_t minuteflag = 0x00;

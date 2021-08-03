@@ -7,7 +7,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         00000b9e  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000077  00800104  00800104  00000c36  2**0
+  2 .bss          00000078  00800104  00800104  00000c36  2**0
                   ALLOC
   3 .comment      00000030  00000000  00000000  00000c36  2**0
                   CONTENTS, READONLY
@@ -91,7 +91,7 @@ Disassembly of section .text:
   92:	1d 92       	st	X+, r1
 
 00000094 <.do_clear_bss_start>:
-  94:	ab 37       	cpi	r26, 0x7B	; 123
+  94:	ac 37       	cpi	r26, 0x7C	; 124
   96:	b2 07       	cpc	r27, r18
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
   9a:	0e 94 a5 03 	call	0x74a	; 0x74a <main>
@@ -225,7 +225,7 @@ Disassembly of section .text:
 void TWI_Stop()
 {
 	TWCR = (1 << TWINT) | (1 << TWSTO) | (1 << TWEN);
- 1a8:	80 93 73 01 	sts	0x0173, r24	; 0x800173 <command>
+ 1a8:	80 93 74 01 	sts	0x0174, r24	; 0x800174 <command>
  1ac:	08 95       	ret
 
 000001ae <SR_Interrupt_init>:
@@ -323,23 +323,23 @@ void TWI_Stop()
 
 0000025a <I2C_requested>:
  25a:	cf 93       	push	r28
- 25c:	80 91 73 01 	lds	r24, 0x0173	; 0x800173 <command>
+ 25c:	80 91 74 01 	lds	r24, 0x0174	; 0x800174 <command>
  260:	8c 31       	cpi	r24, 0x1C	; 28
  262:	39 f5       	brne	.+78     	; 0x2b2 <I2C_requested+0x58>
  264:	c0 91 02 01 	lds	r28, 0x0102	; 0x800102 <mean_counter>
  268:	c7 30       	cpi	r28, 0x07	; 7
  26a:	b8 f4       	brcc	.+46     	; 0x29a <I2C_requested+0x40>
- 26c:	83 e6       	ldi	r24, 0x63	; 99
+ 26c:	84 e6       	ldi	r24, 0x64	; 100
  26e:	8c 0f       	add	r24, r28
  270:	0e 94 21 01 	call	0x242	; 0x242 <read_EEPROM>
  274:	ec 2f       	mov	r30, r28
  276:	f0 e0       	ldi	r31, 0x00	; 0
- 278:	ec 58       	subi	r30, 0x8C	; 140
+ 278:	eb 58       	subi	r30, 0x8B	; 139
  27a:	fe 4f       	sbci	r31, 0xFE	; 254
  27c:	80 83       	st	Z, r24
  27e:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <mean_counter>
  282:	f0 e0       	ldi	r31, 0x00	; 0
- 284:	ec 58       	subi	r30, 0x8C	; 140
+ 284:	eb 58       	subi	r30, 0x8B	; 139
  286:	fe 4f       	sbci	r31, 0xFE	; 254
  288:	80 81       	ld	r24, Z
  28a:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__DATA_REGION_ORIGIN__+0x5b>
@@ -349,18 +349,18 @@ void TWI_Stop()
  298:	34 c0       	rjmp	.+104    	; 0x302 <I2C_requested+0xa8>
  29a:	66 e0       	ldi	r22, 0x06	; 6
  29c:	70 e0       	ldi	r23, 0x00	; 0
- 29e:	85 e7       	ldi	r24, 0x75	; 117
+ 29e:	86 e7       	ldi	r24, 0x76	; 118
  2a0:	91 e0       	ldi	r25, 0x01	; 1
  2a2:	0e 94 53 00 	call	0xa6	; 0xa6 <crc_calculate>
  2a6:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__DATA_REGION_ORIGIN__+0x5b>
  2aa:	81 e0       	ldi	r24, 0x01	; 1
  2ac:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <mean_counter>
  2b0:	28 c0       	rjmp	.+80     	; 0x302 <I2C_requested+0xa8>
- 2b2:	80 91 73 01 	lds	r24, 0x0173	; 0x800173 <command>
+ 2b2:	80 91 74 01 	lds	r24, 0x0174	; 0x800174 <command>
  2b6:	8b 31       	cpi	r24, 0x1B	; 27
  2b8:	21 f5       	brne	.+72     	; 0x302 <I2C_requested+0xa8>
  2ba:	c0 91 0f 01 	lds	r28, 0x010F	; 0x80010f <data_counter>
- 2be:	c3 36       	cpi	r28, 0x63	; 99
+ 2be:	c4 36       	cpi	r28, 0x64	; 100
  2c0:	b0 f4       	brcc	.+44     	; 0x2ee <I2C_requested+0x94>
  2c2:	8c 2f       	mov	r24, r28
  2c4:	0e 94 21 01 	call	0x242	; 0x242 <read_EEPROM>
@@ -379,7 +379,7 @@ void TWI_Stop()
  2e6:	8f 5f       	subi	r24, 0xFF	; 255
  2e8:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <data_counter>
  2ec:	0a c0       	rjmp	.+20     	; 0x302 <I2C_requested+0xa8>
- 2ee:	63 e6       	ldi	r22, 0x63	; 99
+ 2ee:	64 e6       	ldi	r22, 0x64	; 100
  2f0:	70 e0       	ldi	r23, 0x00	; 0
  2f2:	80 e1       	ldi	r24, 0x10	; 16
  2f4:	91 e0       	ldi	r25, 0x01	; 1
@@ -749,7 +749,7 @@ ISR(TIMER1_COMPA_vect)
 	float conthist;			 //
 
 	hundred_count = read_EEPROM(MEMORY_SIZE);				  // Contador de cuantas veces se llego a 100 datos guardados
- 508:	83 e6       	ldi	r24, 0x63	; 99
+ 508:	84 e6       	ldi	r24, 0x64	; 100
  50a:	0e 94 21 01 	call	0x242	; 0x242 <read_EEPROM>
  50e:	d8 2f       	mov	r29, r24
 	conthist = (((float)hundred_count * 100) + (float)count); // contador historico
@@ -872,14 +872,14 @@ ISR(TIMER1_COMPA_vect)
 	{
 		write_byte(MEMORY_SIZE + 1, temperature); // Almacenando temperatura maxima
  624:	6c 2f       	mov	r22, r28
- 626:	84 e6       	ldi	r24, 0x64	; 100
+ 626:	85 e6       	ldi	r24, 0x65	; 101
  628:	0e 94 83 01 	call	0x306	; 0x306 <write_byte>
 		// write_byte(MEMORY_SIZE + 2, conthist);
 		write_byte(MEMORY_SIZE + 2, (uint8_t)conthist);
  62c:	c7 01       	movw	r24, r14
  62e:	b6 01       	movw	r22, r12
  630:	0e 94 a3 04 	call	0x946	; 0x946 <__fixunssfsi>
- 634:	85 e6       	ldi	r24, 0x65	; 101
+ 634:	86 e6       	ldi	r24, 0x66	; 102
  636:	0e 94 83 01 	call	0x306	; 0x306 <write_byte>
 		maxTemp = temperature;
  63a:	c0 93 0c 01 	sts	0x010C, r28	; 0x80010c <maxTemp>
@@ -892,14 +892,14 @@ ISR(TIMER1_COMPA_vect)
 	{
 		write_byte(MEMORY_SIZE + 3, temperature); // Almacenando temperatura minima
  646:	6c 2f       	mov	r22, r28
- 648:	86 e6       	ldi	r24, 0x66	; 102
+ 648:	87 e6       	ldi	r24, 0x67	; 103
  64a:	0e 94 83 01 	call	0x306	; 0x306 <write_byte>
 		// write_byte(MEMORY_SIZE + 4, conthist);	  // Almacenando tiempo
 		write_byte(MEMORY_SIZE + 4, (uint8_t)conthist); // Almacenando tiempo
  64e:	c7 01       	movw	r24, r14
  650:	b6 01       	movw	r22, r12
  652:	0e 94 a3 04 	call	0x946	; 0x946 <__fixunssfsi>
- 656:	87 e6       	ldi	r24, 0x67	; 103
+ 656:	88 e6       	ldi	r24, 0x68	; 104
  658:	0e 94 83 01 	call	0x306	; 0x306 <write_byte>
 		minTemp = temperature;
  65c:	c0 93 01 01 	sts	0x0101, r28	; 0x800101 <minTemp>
@@ -907,11 +907,11 @@ ISR(TIMER1_COMPA_vect)
 
 	write_byte(MEMORY_SIZE + 5, entero);
  660:	61 2f       	mov	r22, r17
- 662:	88 e6       	ldi	r24, 0x68	; 104
+ 662:	89 e6       	ldi	r24, 0x69	; 105
  664:	0e 94 83 01 	call	0x306	; 0x306 <write_byte>
 	write_byte(MEMORY_SIZE + 6, decimal);
  668:	6b 2d       	mov	r22, r11
- 66a:	89 e6       	ldi	r24, 0x69	; 105
+ 66a:	8a e6       	ldi	r24, 0x6A	; 106
  66c:	0e 94 83 01 	call	0x306	; 0x306 <write_byte>
 
 	write_byte(count, temperature); // Almacenar temperatura
@@ -923,7 +923,7 @@ ISR(TIMER1_COMPA_vect)
  67a:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <count>
  67e:	8f 5f       	subi	r24, 0xFF	; 255
 	if (count >= MEMORY_SIZE)
- 680:	83 36       	cpi	r24, 0x63	; 99
+ 680:	84 36       	cpi	r24, 0x64	; 100
  682:	18 f4       	brcc	.+6      	; 0x68a <__vector_11+0x1c6>
 	write_byte(MEMORY_SIZE + 5, entero);
 	write_byte(MEMORY_SIZE + 6, decimal);
@@ -941,7 +941,7 @@ ISR(TIMER1_COMPA_vect)
 		write_byte(MEMORY_SIZE, hundred_count);
  68e:	61 e0       	ldi	r22, 0x01	; 1
  690:	6d 0f       	add	r22, r29
- 692:	83 e6       	ldi	r24, 0x63	; 99
+ 692:	84 e6       	ldi	r24, 0x64	; 100
  694:	0e 94 83 01 	call	0x306	; 0x306 <write_byte>
 	}
 	EWDS();
