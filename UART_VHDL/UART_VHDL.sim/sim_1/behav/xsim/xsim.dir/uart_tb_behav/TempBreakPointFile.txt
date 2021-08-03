@@ -1,0 +1,5 @@
+Breakpoint File Version 1.0
+123 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd
+134 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd
+124 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd
+125 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/UART_VHDL/UART_VHDL.srcs/sim_1/new/UART_TB.vhd

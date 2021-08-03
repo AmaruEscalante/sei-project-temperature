@@ -30,7 +30,7 @@ Architecture behav of Tb_nonsynth is
 -- Configure the test parameters here, to test the i2c Master IP
 -----------------------------------------------------------------------------------------------------
 constant TB_MODE      : std_logic := '0';
-constant SLV_ADDR     : std_logic_vector(6 downto 0) := "0100100";       -- '3C' in 7-bit notation
+constant SLV_ADDR     : std_logic_vector(6 downto 0) := "1001000";       -- '3C' in 7-bit notation
 constant SLV_ADDR_WR  : std_logic_vector(7 downto 0) := SLV_ADDR & '0';  -- Write address
 constant SLV_ADDR_RD  : std_logic_vector(7 downto 0) := SLV_ADDR & '1';  -- Read address
 -----------------------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ signal status        : std_logic := '1';  -- Acknowledgement status
 signal validate      : std_logic := '1';  -- Data read-back validation status
 
 -- i2c Slave specifics
-signal myReg0        : std_logic_vector(7 downto 0) := "00000000";
+signal myReg0        : std_logic_vector(7 downto 0);
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 -- Component Declaration - DUT
@@ -286,7 +286,7 @@ variable mode_i2c      : std_logic;
 variable data_i2c_in   : std_logic_vector(7 downto 0);
 variable data_i2c_out  : bit_vector(7 downto 0);
 variable dchk          : bit_vector(7 downto 0);
-variable reg_addr      : std_logic_vector(7 downto 0);
+variable reg_addr      : std_logic_vector(7 downto 0) := "00000000";
 begin
     -- Reset states
     wr     <= '0';

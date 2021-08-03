@@ -4,22 +4,4 @@ Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto ea04d5cf4d
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v" Line 58. Module serialInterface has a timescale but at least one module in design doesn't have timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package vl.vl_types
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.async_rst_ckt [async_rst_ckt_default]
-Compiling architecture behavioral of entity xil_defaultlib.synchronizer [synchronizer_default]
-Compiling architecture behav of entity xil_defaultlib.my_i2c_master [my_i2c_master_default]
-Compiling module xil_defaultlib.registerInterface
-Compiling module xil_defaultlib.serialInterface
-Compiling module xil_defaultlib.i2cSlave
-Compiling module xil_defaultlib.i2cSlaveTop
-Compiling architecture behav of entity xil_defaultlib.tb_nonsynth
-Built simulation snapshot Tb_nonsynth_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

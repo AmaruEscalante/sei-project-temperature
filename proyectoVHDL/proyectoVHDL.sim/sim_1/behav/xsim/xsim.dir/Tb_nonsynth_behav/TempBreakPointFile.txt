@@ -1,3 +1,13 @@
 Breakpoint File Version 1.0
+305 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+373 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+375 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
 303 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+310 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
 315 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+328 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+333 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+338 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+343 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+359 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+371 true C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd

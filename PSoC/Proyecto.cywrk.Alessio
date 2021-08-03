@@ -224,11 +224,17 @@
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
 </dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
 <name v=".\menuPSoC.cydsn\main.c" />
+<name v=".\menuPSoC.cydsn\crc.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -236,7 +242,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1538, 665" SelectedTabbedMdiWindow="d3480f7f-fc0d-4850-8453-662f1d1ba1cf"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="e9ade121-008b-4470-938e-97c75b7aab51" /><DocumentWindow Key="C:\Users\Alessio\Desktop\localGits\sei-project-temperature\PSoC\menuPSoC.cydsn\main.c" Guid="d3480f7f-fc0d-4850-8453-662f1d1ba1cf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1538, 665" SelectedTabbedMdiWindow="d3480f7f-fc0d-4850-8453-662f1d1ba1cf"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="e9ade121-008b-4470-938e-97c75b7aab51" /><DocumentWindow Key="C:\Users\Alessio\Desktop\localGits\sei-project-temperature\PSoC\menuPSoC.cydsn\main.c" Guid="d3480f7f-fc0d-4850-8453-662f1d1ba1cf" /><DocumentWindow Key="C:\Users\Alessio\Desktop\localGits\sei-project-temperature\PSoC\menuPSoC.cydsn\crc.c" Guid="8909057e-ac1f-43a2-b4f2-1020ca4deb35" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

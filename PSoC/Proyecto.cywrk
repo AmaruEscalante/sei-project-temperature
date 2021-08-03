@@ -8,8 +8,6 @@
 <files />
 <projects>
 <v>.\menuPSoC.cydsn\menuPSoC.cyprj</v>
-<v>..\..\lab05-i2c-tempsensor\Lab05_Exp3.cydsn\Lab05_Exp3.cyprj</v>
-<v>..\..\Lab6-final\Lab6\Exp1.cydsn\Exp1.cyprj</v>
 </projects>
 <workspace_id v="490c0f18-676f-4343-ac1d-c21bc3fcc7cd" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />

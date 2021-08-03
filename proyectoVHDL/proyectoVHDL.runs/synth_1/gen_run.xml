@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1627775261">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1627950954">
   <File Type="PA-TCL" Name="my_i2c_master.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="my_i2c_master_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="my_i2c_master_reports.tcl"/>

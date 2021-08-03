@@ -249,7 +249,7 @@ begin
         next_sdaOut <= `I2C_ACK;
         case (streamSt)
         `STREAM_IDLE: begin
-        if (rxData[7:1] == `I2C_ADDRESS &&
+        if (rxData[7:1] == 'h48 && // CHANGE SLAVE ADDRESS HERE!!!!!!!!!
         startStopDetState == `START_DET) begin
         if (rxData[0] == 1'b1)
         next_streamSt <= `STREAM_READ;

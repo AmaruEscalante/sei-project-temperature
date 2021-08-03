@@ -1,0 +1,665 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 31 19:26:58 2021
+# Process ID: 20956
+# Current directory: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent36836 C:\Users\Alessio\Desktop\localGits\sei-project-temperature\proyectoVHDL\proyectoVHDL.xpr
+# Log file: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/vivado.log
+# Journal file: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 800.441 ; gain = 183.719
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/top.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/top.vhd
+export_ip_user_files -of_objects  [get_files C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/ip/axi_iic_0/axi_iic_0.xci] -no_script -reset -force -quiet
+remove_files  C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/ip/axi_iic_0/axi_iic_0.xci
+file delete -force C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/ip/axi_iic_0
+add_files -norecurse {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/async_rst_ckt.vhd C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Sat Jul 31 19:32:56 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.runs/synth_1/runme.log
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Tb_nonsynth' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Tb_nonsynth_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/async_rst_ckt.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'async_rst_ckt'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'my_i2c_master'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'synchronizer'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Tb_nonsynth'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto ea04d5cf4d994dd59aae2589337b9c46 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Tb_nonsynth_behav xil_defaultlib.Tb_nonsynth -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3009] 'i2cslavetop' remains a black-box since it has no binding entity [C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd:272]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.async_rst_ckt [async_rst_ckt_default]
+Compiling architecture behavioral of entity xil_defaultlib.synchronizer [synchronizer_default]
+Compiling architecture behav of entity xil_defaultlib.my_i2c_master [my_i2c_master_default]
+Compiling architecture behav of entity xil_defaultlib.tb_nonsynth
+Built simulation snapshot Tb_nonsynth_behav
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/xsim.dir/Tb_nonsynth_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Jul 31 19:35:20 2021...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 808.699 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Tb_nonsynth_behav -key {Behavioral:sim_1:Functional:Tb_nonsynth} -tclbatch {Tb_nonsynth.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Tb_nonsynth.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Tb_nonsynth_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 834.742 ; gain = 26.043
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Tb_nonsynth' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Tb_nonsynth_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto ea04d5cf4d994dd59aae2589337b9c46 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Tb_nonsynth_behav xil_defaultlib.Tb_nonsynth -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3009] 'i2cslavetop' remains a black-box since it has no binding entity [C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd:272]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Tb_nonsynth_behav -key {Behavioral:sim_1:Functional:Tb_nonsynth} -tclbatch {Tb_nonsynth.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Tb_nonsynth.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Tb_nonsynth_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1306.590 ; gain = 0.000
+add_files -norecurse {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/timescale.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlaveTop.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/registerInterface.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave.v C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v}
+update_compile_order -fileset sources_1
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.runs/synth_1
+
+launch_runs synth_1 -jobs 8
+[Sat Jul 31 19:47:41 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.runs/synth_1/runme.log
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Tb_nonsynth' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Tb_nonsynth_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlave.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2cSlave
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/i2cSlaveTop.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2cSlaveTop
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/registerInterface.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module registerInterface
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module serialInterface
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+"xvhdl --incr --relax -prj Tb_nonsynth_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto ea04d5cf4d994dd59aae2589337b9c46 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Tb_nonsynth_behav xil_defaultlib.Tb_nonsynth xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v" Line 58. Module serialInterface has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.async_rst_ckt [async_rst_ckt_default]
+Compiling architecture behavioral of entity xil_defaultlib.synchronizer [synchronizer_default]
+Compiling architecture behav of entity xil_defaultlib.my_i2c_master [my_i2c_master_default]
+Compiling module xil_defaultlib.registerInterface
+Compiling module xil_defaultlib.serialInterface
+Compiling module xil_defaultlib.i2cSlave
+Compiling module xil_defaultlib.i2cSlaveTop
+Compiling architecture behav of entity xil_defaultlib.tb_nonsynth
+Built simulation snapshot Tb_nonsynth_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Tb_nonsynth_behav -key {Behavioral:sim_1:Functional:Tb_nonsynth} -tclbatch {Tb_nonsynth.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Tb_nonsynth.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Tb_nonsynth_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1719.758 ; gain = 0.000
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 303
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Tb_nonsynth' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Tb_nonsynth_vlog.prj"
+"xvhdl --incr --relax -prj Tb_nonsynth_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Tb_nonsynth'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto ea04d5cf4d994dd59aae2589337b9c46 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Tb_nonsynth_behav xil_defaultlib.Tb_nonsynth xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v" Line 58. Module serialInterface has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.async_rst_ckt [async_rst_ckt_default]
+Compiling architecture behavioral of entity xil_defaultlib.synchronizer [synchronizer_default]
+Compiling architecture behav of entity xil_defaultlib.my_i2c_master [my_i2c_master_default]
+Compiling module xil_defaultlib.registerInterface
+Compiling module xil_defaultlib.serialInterface
+Compiling module xil_defaultlib.i2cSlave
+Compiling module xil_defaultlib.i2cSlaveTop
+Compiling architecture behav of entity xil_defaultlib.tb_nonsynth
+Built simulation snapshot Tb_nonsynth_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Tb_nonsynth_behav -key {Behavioral:sim_1:Functional:Tb_nonsynth} -tclbatch {Tb_nonsynth.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Tb_nonsynth.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Tb_nonsynth_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1719.758 ; gain = 0.000
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 303
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 303
+run 10 us
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 305
+run all
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+run all
+Stopped at time : 100 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 305
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 310
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+run all
+Stopped at time : 100 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 305
+run all
+Stopped at time : 200 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 310
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+run all
+Stopped at time : 100 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 305
+run all
+Stopped at time : 200 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 310
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 315
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 310
+run all
+Stopped at time : 112775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 315
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 320
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 328
+run all
+Stopped at time : 227775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 320
+run all
+Stopped at time : 687775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 328
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 333
+run all
+Stopped at time : 817775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 333
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 338
+run all
+Stopped at time : 932775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 338
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 343
+run all
+Stopped at time : 1062775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 343
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 359
+run all
+Stopped at time : 1392775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 359
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 361
+run all
+Stopped at time : 1502775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 361
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 371
+run all
+Stopped at time : 1502775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 371
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 378
+run all
+Note: Test successfully finished !! ... No errors found ...
+Time: 1537775 ns  Iteration: 1  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run: Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1719.758 ; gain = 0.000
+INFO: [Common 17-344] 'run' was cancelled
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 392
+run all
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'run' was cancelled
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 398
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 398
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 398
+run all
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'run' was cancelled
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Tb_nonsynth' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Tb_nonsynth_vlog.prj"
+"xvhdl --incr --relax -prj Tb_nonsynth_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Tb_nonsynth'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto ea04d5cf4d994dd59aae2589337b9c46 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Tb_nonsynth_behav xil_defaultlib.Tb_nonsynth xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v" Line 58. Module serialInterface has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.async_rst_ckt [async_rst_ckt_default]
+Compiling architecture behavioral of entity xil_defaultlib.synchronizer [synchronizer_default]
+Compiling architecture behav of entity xil_defaultlib.my_i2c_master [my_i2c_master_default]
+Compiling module xil_defaultlib.registerInterface
+Compiling module xil_defaultlib.serialInterface
+Compiling module xil_defaultlib.i2cSlave
+Compiling module xil_defaultlib.i2cSlaveTop
+Compiling architecture behav of entity xil_defaultlib.tb_nonsynth
+Built simulation snapshot Tb_nonsynth_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Tb_nonsynth_behav -key {Behavioral:sim_1:Functional:Tb_nonsynth} -tclbatch {Tb_nonsynth.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Tb_nonsynth.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 398
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Tb_nonsynth_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1719.758 ; gain = 0.000
+run all
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 392
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 303
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 303
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 398
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 398
+run all
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 392
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 392
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 378
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 371
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 361
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 359
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 343
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 338
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 333
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 328
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 320
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 315
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 305
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 118
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 119
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/glbl.v" Line 52
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/glbl.v" Line 54
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/glbl.v" Line 53
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/glbl.v" Line 67
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 188
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 190
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 191
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 192
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 193
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 194
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 196
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 197
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 199
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 200
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 465
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 466
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 467
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/async_rst_ckt.vhd" Line 59
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/async_rst_ckt.vhd" Line 60
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" Line 56
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" Line 56
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 378
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim/glbl.v" Line 53
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 180
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" Line 56
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" Line 56
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" Line 56
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" Line 56
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/synchronizer.vhd" Line 56
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 188
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 190
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 191
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 192
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 193
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 194
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 196
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 197
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 199
+step
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/my_i2c_master.vhd" Line 200
+step
+Stopped at time : 5 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 387
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 305
+run all
+Stopped at time : 100 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 305
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 305
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 310
+run all
+Stopped at time : 200 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 310
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 310
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 315
+run all
+Stopped at time : 112775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 315
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 320
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 315
+run all
+Failure: \nTest Failed @112775000 ps - No Acknowledgement Received
+Time: 112775 ns  Iteration: 2  Process: /Tb_nonsynth/line__397  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+$finish called at time : 112775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 397
+run all
+Stopped at time : 227775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 320
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 320
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 320
+remove_bps -file {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} -line 320
+add_bp {C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd} 315
+run all
+Stopped at time : 112775 ns : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 315
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Tb_nonsynth' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Tb_nonsynth_vlog.prj"
+"xvhdl --incr --relax -prj Tb_nonsynth_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Tb_nonsynth'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto ea04d5cf4d994dd59aae2589337b9c46 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Tb_nonsynth_behav xil_defaultlib.Tb_nonsynth xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sources_1/new/serialInterface.v" Line 58. Module serialInterface has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.async_rst_ckt [async_rst_ckt_default]
+Compiling architecture behavioral of entity xil_defaultlib.synchronizer [synchronizer_default]
+Compiling architecture behav of entity xil_defaultlib.my_i2c_master [my_i2c_master_default]
+Compiling module xil_defaultlib.registerInterface
+Compiling module xil_defaultlib.serialInterface
+Compiling module xil_defaultlib.i2cSlave
+Compiling module xil_defaultlib.i2cSlaveTop
+Compiling architecture behav of entity xil_defaultlib.tb_nonsynth
+Built simulation snapshot Tb_nonsynth_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Tb_nonsynth_behav -key {Behavioral:sim_1:Functional:Tb_nonsynth} -tclbatch {Tb_nonsynth.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Tb_nonsynth.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Note: %% TESTING I2C MASTER %%
+Time: 0 ps  Iteration: 0  Process: /Tb_nonsynth/test_vectors  File: C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd
+Stopped at time : 0 fs : File "C:/Users/Alessio/Desktop/localGits/sei-project-temperature/proyectoVHDL/proyectoVHDL.srcs/sim_1/new/Tb_nonsynth.vhd" Line 303
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Tb_nonsynth_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1719.758 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Aug  1 01:41:32 2021...
