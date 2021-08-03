@@ -192,7 +192,7 @@ void writeAll(uint8_t data_write)
 	shiftdata(data_write);
 	PORTD &= ~(1 << SELECT); // Desactivamos el selector
 	PORTD |= (1 << SELECT);	 // Activamos el check status
-	while ((PIND && (1 << MISO)) == 0)
+	while ((PIND & (1 << MISO)) != (1 << MISO))
 	{
 	};						 // Bucle para esperar
 	PORTD &= ~(1 << SELECT); // Terminamos el check status
@@ -205,8 +205,8 @@ void timerInit()
 	TCCR1B = (1 << WGM12) | (1 << CS12) | (1 << CS10); // CTC and prescaler 1024
 	TIMSK1 |= (1 << OCIE1A);
 	// formula: x seconds / 1024/10^6
-	OCR1A = 58594; // 60 seconds
-				   // OCR1A = 4883; // 5 seconds
+	//OCR1A = 58594; // 60 seconds
+	OCR1A = 4883; // 5 seconds
 }
 
 void Error()
@@ -410,16 +410,16 @@ ISR(TIMER1_COMPA_vect)
 	if (temperature > maxTemp)
 	{
 		write_byte(MEMORY_SIZE + 1, temperature); // Almacenando temperatura maxima
-		// write_byte(MEMORY_SIZE + 2, conthist);
-		write_byte(MEMORY_SIZE + 2, 0x0A);
+		write_byte(MEMORY_SIZE + 2, conthist);
+		// write_byte(MEMORY_SIZE + 2, 0x0A);
 		maxTemp = temperature;
 	}
 
 	if (temperature < minTemp)
 	{
 		write_byte(MEMORY_SIZE + 3, temperature); // Almacenando temperatura minima
-		// write_byte(MEMORY_SIZE + 4, conthist);	  // Almacenando tiempo
-		write_byte(MEMORY_SIZE + 4, 0xA0); // Almacenando tiempo
+		write_byte(MEMORY_SIZE + 4, conthist);	  // Almacenando tiempo
+		// write_byte(MEMORY_SIZE + 4, 0xA0); // Almacenando tiempo
 		minTemp = temperature;
 	}
 
@@ -524,6 +524,11 @@ int main(void)
 
 	sei();
 	timerInit();
+
+	// Inicializa los valores de la EEPROM en 0
+	EWEN();
+	writeAll(0x00);
+	EWDS();
 
 	while (1)
 	{
