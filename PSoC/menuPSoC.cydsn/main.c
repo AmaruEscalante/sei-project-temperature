@@ -9,7 +9,7 @@
 #define RETURN 0x0D
 
 #define I2C_ATMEL_SLAVE_ADDR 0x20
-#define TEMP_DATA_SIZE 99
+#define TEMP_DATA_SIZE 100
 
 CY_ISR_PROTO(stop_temperature_conversion);
 
