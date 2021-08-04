@@ -126,7 +126,7 @@ void option1()
 
         prom = read_temp(&data_l, &data_h);
 
-        sprintf(buffer, "Average temperature: %0.1f\n\r", prom);
+        sprintf(buffer, "AVERAGE TEMPERATURE: %0.1f\n\r", prom);
         UART_PutString(buffer);
         CyDelay(2000);
     }
